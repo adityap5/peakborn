@@ -70,14 +70,24 @@ export interface Destination {
   departureNote?: string;
 }
 
-export interface ItineraryDay {
+export interface TourItineraryDay {
   dayNumber: number;
   title: string;
-  location: string;
+  location?: string;
+  time?: string;
   description: string;
   highlights?: string[];
   mealsIncluded?: string[];
   overnightStay?: string;
+  activities?: string[];
+}
+
+// Alias for backward compatibility
+export type ItineraryDay = TourItineraryDay;
+
+export interface TourFAQ {
+  question: string;
+  answer: string;
 }
 
 export interface TourPackage {
@@ -85,30 +95,34 @@ export interface TourPackage {
   slug: string;
   title: string;
   subtitle: string;
-  durationNights: number;
   durationDays: number;
-  durationLabel: string; // e.g. "05N / 06D"
+  durationNights: number;
+  durationLabel: string; // e.g. "05 Nights / 06 Days", "Same Day (1 Day)"
   routeOverview: string; // e.g. "Delhi · Jaipur · Agra · Delhi"
   routeCities: string[];
+  startingPoint?: string; // compatibility alias
+  endingPoint?: string;   // compatibility alias
+  pickupLocation?: string;
+  dropLocation?: string;
+  languages?: string[];
   heroImage: string;
   thumbnailImage: string;
   galleryImages?: string[];
   shortDescription: string;
   fullOverview: string;
   tourType: string;
-  startingPoint: string;
-  endingPoint: string;
-  bestFor: string;
-  travelStyleSlugs: string[];
-  destinationSlugs: string[];
+  bestFor?: string;
+  categorySlugs: string[];
+  travelStyleSlugs?: string[]; // compatibility alias
+  destinationSlugs?: string[]; // compatibility alias
   highlights: string[];
-  itinerary: ItineraryDay[];
+  signatureExperiences?: Activity[];
+  signature?: Activity[]; // compatibility alias
+  itinerary: TourItineraryDay[];
   inclusions: string[];
   exclusions: string[];
-  faqs?: {
-    question: string;
-    answer: string;
-  }[];
+  accommodationNotes?: string;
+  faqs?: TourFAQ[];
   featured: boolean;
   metaTitle: string;
   metaDescription: string;

@@ -2,19 +2,27 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { Container } from '@/components/layout/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { TourCard } from '@/components/cards/TourCard';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { getAllTourPackages, getCompanyInfo } from '@/lib/data-access';
 import { UtilityBar } from '@/components/layout/UtilityBar';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { TourPackageFilterGrid } from '@/components/sections/tour/TourPackageFilterGrid';
 
 const company = getCompanyInfo();
 
 export const metadata: Metadata = {
   title: `India Tour Packages & Private Itineraries | ${company.name}`,
   description:
-    'Browse our complete collection of private, customizable India tour packages. From classic Golden Triangle tours to Rajasthan heritage circuits, Kerala backwaters, and Central India tiger safaris.',
+    'Browse our complete collection of private, customizable India tour packages. From classic Golden Triangle circuits to Rajasthan heritage havelis, Kerala backwaters, and Central India tiger safaris.',
+  alternates: {
+    canonical: '/tour-packages',
+  },
+  openGraph: {
+    title: `India Tour Packages & Private Itineraries | ${company.name}`,
+    description:
+      'Browse our complete collection of private, customizable India tour packages. Handcrafted journeys with private chauffeur and local guide.',
+  },
 };
 
 export default function TourPackagesPage() {
@@ -32,32 +40,30 @@ export default function TourPackagesPage() {
           <Container>
             <div className="max-w-3xl">
               <span className="text-xs font-bold uppercase tracking-widest text-brand-primary block mb-2">
-                Handcrafted Itineraries
+                Handcrafted Private Journeys
               </span>
               <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark tracking-tight leading-tight mb-4">
                 India Tour Packages
               </h1>
               <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-sans">
-                Each itinerary below is a road-tested starting point. Our destination specialists will tailor the pacing, hotel tier, and route to match your personal vision and schedule.
+                Each itinerary below is a road-tested starting point. Our destination specialists will tailor the pacing, hotel tier, and route sights to match your personal vision and schedule.
               </p>
             </div>
           </Container>
         </section>
 
-        {/* Packages Grid */}
+        {/* Interactive Filter & Packages Grid */}
         <section className="py-14 sm:py-20 bg-cream-50">
           <Container>
             <SectionHeading
-              kicker="Private &amp; Customizable"
+              kicker="Explore By Interest"
               title="All Available Journeys"
               subtitle="Every tour includes dedicated private chauffeur transport, verified stays, and certified local monument guides."
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {tours.map((tour) => (
-                <TourCard key={tour.id} tour={tour} />
-              ))}
-            </div>
+            <React.Suspense fallback={<div className="py-12 text-center text-sm text-gray-500">Loading tour packages...</div>}>
+              <TourPackageFilterGrid tours={tours} company={company} />
+            </React.Suspense>
           </Container>
         </section>
       </main>

@@ -1,17 +1,18 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import {
   Clock,
-  MapPin,
-  Check,
-  X,
   Compass,
   Users,
+  MapPin,
   ShieldCheck,
-  HelpCircle,
-  ArrowRight,
+  Phone,
+  MessageSquare,
+  Award,
+  Globe,
+  Navigation,
+  CheckCircle2,
 } from 'lucide-react';
 import { getAllTourPackages, getTourPackageBySlug, getCompanyInfo } from '@/lib/data-access';
 import { generateTourJsonLd } from '@/lib/seo';
@@ -20,8 +21,17 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Container } from '@/components/layout/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import { TourHero } from '@/components/sections/tour/TourHero';
+import { TourOverview } from '@/components/sections/tour/TourOverview';
+import { TourPickupDrop } from '@/components/sections/tour/TourPickupDrop';
+import { TourGuideLanguage } from '@/components/sections/tour/TourGuideLanguage';
+import { TourHighlights } from '@/components/sections/tour/TourHighlights';
+import { TourItinerary } from '@/components/sections/tour/TourItinerary';
+import { TourInclusions } from '@/components/sections/tour/TourInclusions';
+import { TourAccommodation } from '@/components/sections/tour/TourAccommodation';
+import { TourGallery } from '@/components/sections/tour/TourGallery';
+import { TourFAQ } from '@/components/sections/tour/TourFAQ';
+import { RelatedTours } from '@/components/sections/tour/RelatedTours';
 import { TourEnquiryForm } from '@/components/forms/TourEnquiryForm';
 
 interface TourPackagePageProps {
@@ -77,6 +87,7 @@ export default async function TourPackageDetailPage({ params }: TourPackagePageP
   }
 
   const jsonLd = generateTourJsonLd(tour, company, 'https://company-domain.com');
+  const hasWhatsApp = Boolean(company.whatsappNumber && company.whatsappNumber.trim());
 
   return (
     <>
@@ -94,337 +105,204 @@ export default async function TourPackageDetailPage({ params }: TourPackagePageP
       />
 
       <main id="main-content" className="flex-1">
-        {/* Tour Hero Banner */}
-        <section className="relative min-h-[440px] sm:min-h-[500px] flex items-center justify-center overflow-hidden bg-brand-navy text-white py-14 sm:py-18">
-          <Image
-            src={tour.heroImage}
-            alt={tour.title}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[center_35%]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/35" />
+        {/* Greenlandwey-Style Tour Hero Banner */}
+        <TourHero tour={tour} company={company} />
 
-          <Container className="relative z-10 text-center max-w-4xl mx-auto space-y-4">
-            <div className="flex items-center justify-center gap-2">
-              <Badge variant="dark" className="bg-black/60 border border-white/20 py-1 px-3 text-xs">
-                <Clock className="w-3.5 h-3.5 text-amber-400" />
-                <span>{tour.durationLabel}</span>
-              </Badge>
-
-              <Badge variant="dark" className="bg-black/60 border border-white/20 py-1 px-3 text-xs">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span>{tour.tourType}</span>
-              </Badge>
-            </div>
-
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white drop-shadow-md">
-              {tour.title}
-            </h1>
-
-            <div className="flex items-center justify-center gap-2 text-sm sm:text-base text-slate-200 font-medium">
-              <MapPin className="w-4 h-4 text-brand-gold shrink-0" />
-              <span>{tour.routeOverview}</span>
-            </div>
-
-            <div className="pt-4 flex items-center justify-center gap-3 flex-wrap">
-              <a href="#enquiry-form">
-                <Button variant="primary" size="lg" className="shadow-lg font-bold">
-                  <span>Enquire About This Tour</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </Button>
-              </a>
-
-              <a href="#itinerary">
-                <Button variant="outlineInvert" size="lg">
-                  <span>View Itinerary</span>
-                </Button>
-              </a>
-            </div>
-          </Container>
-        </section>
-
-        {/* Overview & Quick Facts Section */}
-        <section className="py-12 sm:py-16 bg-cream-50 border-b border-line">
+        {/* 2-Column Main Content & Sticky Sidebar Grid */}
+        <section className="py-12 sm:py-16 bg-cream-50/50">
           <Container>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12 items-start">
-              {/* Left Overview Column */}
-              <div className="lg:col-span-2 space-y-6">
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-brand-primary block mb-1.5">
-                    Tour Overview
-                  </span>
-                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-dark tracking-tight">
-                    About This Itinerary
-                  </h2>
-                </div>
+              {/* Left Main Content Column (2/3) */}
+              <div className="lg:col-span-2 space-y-8 sm:space-y-10">
+                {/* 1. Overview */}
+                <TourOverview tour={tour} />
 
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-sans">
-                  {tour.fullOverview || tour.shortDescription}
-                </p>
+                {/* 2. Pick-up & Drop Location */}
+                <TourPickupDrop tour={tour} />
 
-                {/* Key Highlights */}
-                {tour.highlights && tour.highlights.length > 0 && (
-                  <div className="pt-3">
-                    <h3 className="font-serif text-lg font-bold text-brand-dark mb-3">
-                      Tour Highlights
-                    </h3>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                      {tour.highlights.map((highlight, idx) => (
-                        <li
-                          key={idx}
-                          className="flex items-center gap-2 text-xs sm:text-sm text-gray-700 bg-white p-3 rounded-lg border border-line shadow-xs font-medium"
-                        >
-                          <div className="w-2 h-2 rounded-full bg-brand-primary shrink-0" />
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                {/* 3. Tour Guide Language */}
+                <TourGuideLanguage tour={tour} />
+
+                {/* 4. Highlights & Signature Experiences */}
+                <TourHighlights tour={tour} />
+
+                {/* 5. Inclusions & Exclusions */}
+                <TourInclusions tour={tour} />
+
+                {/* 6. Detailed Day-by-Day Itinerary */}
+                <TourItinerary itinerary={tour.itinerary} />
+
+                {/* 7. Accommodation & Transport Standards */}
+                <TourAccommodation tour={tour} />
+
+                {/* 8. Photo Gallery */}
+                <TourGallery images={tour.galleryImages} title={tour.title} />
+
+                {/* 9. FAQs */}
+                <TourFAQ faqs={tour.faqs} />
               </div>
 
-              {/* Right Quick Facts Box */}
-              <div className="bg-white p-6 sm:p-7 rounded-2xl border border-line shadow-xs">
-                <h3 className="font-serif text-lg font-bold text-brand-dark pb-3 border-b border-line mb-4">
-                  Quick Facts
-                </h3>
-
-                <dl className="space-y-4 text-xs sm:text-sm">
-                  <div className="flex items-start gap-3">
-                    <Clock className="w-4 h-4 text-brand-primary shrink-0 mt-0.5" />
-                    <div>
-                      <dt className="text-gray-500 font-medium">Duration</dt>
-                      <dd className="font-semibold text-brand-dark mt-0.5">
-                        {tour.durationLabel}
-                      </dd>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Compass className="w-4 h-4 text-brand-primary shrink-0 mt-0.5" />
-                    <div>
-                      <dt className="text-gray-500 font-medium">Starting &amp; Ending City</dt>
-                      <dd className="font-semibold text-brand-dark mt-0.5">
-                        {tour.startingPoint} &rarr; {tour.endingPoint}
-                      </dd>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Users className="w-4 h-4 text-brand-primary shrink-0 mt-0.5" />
-                    <div>
-                      <dt className="text-gray-500 font-medium">Best For</dt>
-                      <dd className="font-semibold text-brand-dark mt-0.5">
-                        {tour.bestFor}
-                      </dd>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-brand-primary shrink-0 mt-0.5" />
-                    <div>
-                      <dt className="text-gray-500 font-medium">Destinations Visited</dt>
-                      <dd className="font-semibold text-brand-dark mt-0.5">
-                        {tour.routeOverview}
-                      </dd>
-                    </div>
-                  </div>
-                </dl>
-              </div>
-            </div>
-          </Container>
-        </section>
-
-        {/* Day-by-Day Itinerary Section */}
-        <section id="itinerary" className="py-14 sm:py-20 bg-white border-b border-line">
-          <Container className="max-w-4xl">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="text-xs font-bold uppercase tracking-widest text-brand-primary block mb-2">
-                Day-by-Day Plan
-              </span>
-              <h2 className="font-serif text-2xl sm:text-4xl font-bold text-brand-dark tracking-tight leading-tight">
-                Detailed Itinerary
-              </h2>
-              <p className="text-xs sm:text-sm text-gray-600 mt-2">
-                Every day is paced comfortably with your private vehicle and dedicated local guide.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              {tour.itinerary.map((day) => (
-                <div
-                  key={day.dayNumber}
-                  className="p-6 sm:p-7 rounded-2xl bg-cream-50/60 border border-line shadow-xs hover:border-brand-primary/40 transition-colors"
-                >
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                    <Badge variant="gold" className="font-bold text-xs uppercase tracking-wider">
-                      Day {day.dayNumber}
-                    </Badge>
-                    <span className="text-xs font-semibold text-brand-dark/70 flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5 text-brand-primary" />
-                      <span>{day.location}</span>
-                    </span>
-                  </div>
-
-                  <h3 className="font-serif text-lg sm:text-xl font-bold text-brand-dark mb-2.5">
-                    {day.title}
+              {/* Right Sticky Sidebar (1/3) */}
+              <aside className="lg:col-span-1 space-y-6 lg:sticky lg:top-28">
+                {/* Quick Facts Card */}
+                <div className="p-6 rounded-2xl bg-white border border-line shadow-xs space-y-4">
+                  <h3 className="font-serif text-lg font-bold text-brand-dark pb-3 border-b border-line flex items-center gap-2">
+                    <Award className="w-4 h-4 text-brand-gold" />
+                    <span>Quick Tour Facts</span>
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-sans mb-3">
-                    {day.description}
-                  </p>
-
-                  <div className="flex flex-wrap items-center gap-4 text-xs text-gray-500 pt-3 border-t border-line/60">
-                    {day.mealsIncluded && day.mealsIncluded.length > 0 && (
+                  <dl className="space-y-3.5 text-xs sm:text-sm">
+                    <div className="flex items-start gap-3">
+                      <Clock className="w-4 h-4 text-brand-primary shrink-0 mt-0.5" />
                       <div>
-                        <strong>Meals:</strong> {day.mealsIncluded.join(', ')}
+                        <dt className="text-gray-500 font-medium">Duration</dt>
+                        <dd className="font-semibold text-brand-dark mt-0.5">
+                          {tour.durationLabel}
+                        </dd>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <Compass className="w-4 h-4 text-brand-primary shrink-0 mt-0.5" />
+                      <div>
+                        <dt className="text-gray-500 font-medium">Tour Routing</dt>
+                        <dd className="font-semibold text-brand-dark mt-0.5">
+                          {tour.startingPoint || tour.routeCities[0]} &rarr;{' '}
+                          {tour.endingPoint || tour.routeCities[tour.routeCities.length - 1]}
+                        </dd>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <ShieldCheck className="w-4 h-4 text-brand-primary shrink-0 mt-0.5" />
+                      <div>
+                        <dt className="text-gray-500 font-medium">Tour Type</dt>
+                        <dd className="font-semibold text-brand-dark mt-0.5">
+                          {tour.tourType} (100% Private)
+                        </dd>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <Users className="w-4 h-4 text-brand-primary shrink-0 mt-0.5" />
+                      <div>
+                        <dt className="text-gray-500 font-medium">Best Suited For</dt>
+                        <dd className="font-semibold text-brand-dark mt-0.5">
+                          {tour.bestFor}
+                        </dd>
+                      </div>
+                    </div>
+
+                    {tour.pickupLocation && (
+                      <div className="flex items-start gap-3">
+                        <Navigation className="w-4 h-4 text-brand-primary shrink-0 mt-0.5" />
+                        <div>
+                          <dt className="text-gray-500 font-medium">Pickup &amp; Drop</dt>
+                          <dd className="font-semibold text-brand-dark mt-0.5">
+                            {tour.pickupLocation}
+                          </dd>
+                        </div>
                       </div>
                     )}
-                    {day.overnightStay && (
-                      <div>
-                        <strong>Stay:</strong> {day.overnightStay}
+
+                    {tour.languages && tour.languages.length > 0 && (
+                      <div className="flex items-start gap-3">
+                        <Globe className="w-4 h-4 text-brand-primary shrink-0 mt-0.5" />
+                        <div>
+                          <dt className="text-gray-500 font-medium">Guide Languages</dt>
+                          <dd className="font-semibold text-brand-dark mt-0.5">
+                            {tour.languages.join(', ')}
+                          </dd>
+                        </div>
                       </div>
                     )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Container>
-        </section>
 
-        {/* Visual Journey / Gallery Showcase */}
-        {tour.galleryImages && tour.galleryImages.length > 0 && (
-          <section className="py-14 sm:py-20 bg-cream-50/70 border-b border-line">
-            <Container className="max-w-5xl">
-              <div className="text-center max-w-2xl mx-auto mb-10">
-                <span className="text-xs font-bold uppercase tracking-widest text-brand-primary block mb-2">
-                  Visual Journey
-                </span>
-                <h2 className="font-serif text-2xl sm:text-4xl font-bold text-brand-dark tracking-tight leading-tight">
-                  Experience Highlights
-                </h2>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                {tour.galleryImages.map((imgSrc, idx) => (
-                  <div
-                    key={idx}
-                    className="relative aspect-[4/3] rounded-xl overflow-hidden bg-cream-200 border border-line shadow-xs group"
-                  >
-                    <Image
-                      src={imgSrc}
-                      alt={`${tour.title} scene ${idx + 1}`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover object-[center_35%] transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                ))}
-              </div>
-            </Container>
-          </section>
-        )}
-
-        {/* Inclusions & Exclusions */}
-        <section className="py-14 sm:py-20 bg-white border-b border-line">
-          <Container className="max-w-5xl">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="text-xs font-bold uppercase tracking-widest text-brand-primary block mb-2">
-                What’s Covered
-              </span>
-              <h2 className="font-serif text-2xl sm:text-4xl font-bold text-brand-dark tracking-tight leading-tight">
-                Inclusions &amp; Exclusions
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Inclusions */}
-              <div className="p-6 sm:p-8 rounded-2xl bg-white border border-line shadow-xs">
-                <h3 className="font-serif text-lg font-bold text-emerald-800 mb-4 flex items-center gap-2">
-                  <Check className="w-5 h-5 text-emerald-600 shrink-0" />
-                  <span>Package Inclusions</span>
-                </h3>
-                <ul className="space-y-3 text-xs sm:text-sm text-gray-700">
-                  {tour.inclusions.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
-                        <Check className="w-3 h-3" />
+                    <div className="flex items-start gap-3">
+                      <MapPin className="w-4 h-4 text-brand-primary shrink-0 mt-0.5" />
+                      <div>
+                        <dt className="text-gray-500 font-medium">Destinations</dt>
+                        <dd className="font-semibold text-brand-dark mt-0.5">
+                          {tour.routeOverview}
+                        </dd>
                       </div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Exclusions */}
-              <div className="p-6 sm:p-8 rounded-2xl bg-white border border-line shadow-xs">
-                <h3 className="font-serif text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
-                  <X className="w-5 h-5 text-gray-400 shrink-0" />
-                  <span>Package Exclusions</span>
-                </h3>
-                <ul className="space-y-3 text-xs sm:text-sm text-gray-700">
-                  {tour.exclusions.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5">
-                      <div className="w-4 h-4 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center shrink-0 mt-0.5">
-                        <X className="w-3 h-3" />
-                      </div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </Container>
-        </section>
-
-        {/* FAQs */}
-        {tour.faqs && tour.faqs.length > 0 && (
-          <section className="py-14 sm:py-20 bg-white border-b border-line">
-            <Container className="max-w-4xl">
-              <div className="text-center max-w-2xl mx-auto mb-10">
-                <div className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-brand-primary mb-2">
-                  <HelpCircle className="w-4 h-4" />
-                  <span>Common Questions</span>
+                    </div>
+                  </dl>
                 </div>
-                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-dark tracking-tight">
-                  Frequently Asked Questions
-                </h2>
-              </div>
 
-              <div className="space-y-4">
-                {tour.faqs.map((faq, idx) => (
-                  <div key={idx} className="p-5 sm:p-6 rounded-xl bg-cream-50 border border-line">
-                    <h3 className="font-serif text-base sm:text-lg font-bold text-brand-dark mb-2">
-                      {faq.question}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
-                      {faq.answer}
-                    </p>
+                {/* Interactive Sticky Enquiry Form Card */}
+                <div id="enquiry-form" className="scroll-mt-28">
+                  <TourEnquiryForm
+                    tourTitle={tour.title}
+                    tourSlug={tour.slug}
+                    className="shadow-md"
+                  />
+                </div>
+
+                {/* Why Book With Us Card */}
+                <div className="p-6 rounded-2xl bg-brand-navy text-white shadow-xs space-y-4">
+                  <h3 className="font-serif text-base font-bold text-brand-gold flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-brand-gold" />
+                    <span>Why Book With {company.name}</span>
+                  </h3>
+                  <ul className="space-y-3 text-xs sm:text-sm text-slate-200">
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle2 className="w-4 h-4 text-brand-gold shrink-0 mt-0.5" />
+                      <span><strong>100% Tailored:</strong> Customize pacing, hotel tiers, and route sights freely.</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle2 className="w-4 h-4 text-brand-gold shrink-0 mt-0.5" />
+                      <span><strong>Private AC Vehicles:</strong> Courteous English-speaking chauffeurs dedicated to you.</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle2 className="w-4 h-4 text-brand-gold shrink-0 mt-0.5" />
+                      <span><strong>Inspected Stays:</strong> Verified 3-star, 4-star, and 5-star luxury heritage properties.</span>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <CheckCircle2 className="w-4 h-4 text-brand-gold shrink-0 mt-0.5" />
+                      <span><strong>24/7 Trip Support:</strong> Dedicated concierge assistance throughout your travels.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Direct Contact Card (Conditional) */}
+                {(company.phone || hasWhatsApp) && (
+                  <div className="p-5 rounded-xl bg-white border border-line shadow-xs space-y-3 text-center">
+                    <span className="text-xs font-bold uppercase tracking-wider text-gray-500 block">
+                      Prefer To Speak Directly?
+                    </span>
+                    <div className="flex flex-col gap-2">
+                      {company.phone && (
+                        <a
+                          href={`tel:${company.phone.replace(/[^0-9+]/g, '')}`}
+                          className="inline-flex items-center justify-center gap-2 rounded-lg bg-cream-100 hover:bg-cream-200 text-brand-dark px-4 py-2 text-xs font-bold transition-colors"
+                        >
+                          <Phone className="w-3.5 h-3.5 text-brand-primary" />
+                          <span>Call: {company.phone}</span>
+                        </a>
+                      )}
+                      {hasWhatsApp && (
+                        <a
+                          href={`https://wa.me/${company.whatsappNumber!.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
+                            `Hi, I have a question about the tour: ${tour.title}`
+                          )}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 text-xs font-bold transition-colors"
+                        >
+                          <MessageSquare className="w-3.5 h-3.5" />
+                          <span>Instant WhatsApp Chat</span>
+                        </a>
+                      )}
+                    </div>
                   </div>
-                ))}
-              </div>
-            </Container>
-          </section>
-        )}
-
-        {/* Contextual Enquiry Form Section */}
-        <section id="enquiry-form" className="py-16 sm:py-24 bg-cream-100/60">
-          <Container className="max-w-3xl">
-            <div className="text-center mb-8">
-              <span className="text-xs font-bold uppercase tracking-widest text-brand-primary block mb-1">
-                Custom Planning
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-dark tracking-tight">
-                Request Custom Itinerary &amp; Quote
-              </h2>
-              <p className="text-xs sm:text-sm text-gray-600 mt-1">
-                Share your dates and preferences to receive a tailored itinerary and private quote.
-              </p>
+                )}
+              </aside>
             </div>
 
-            <TourEnquiryForm tourTitle={tour.title} tourSlug={tour.slug} className="shadow-lg" />
+            {/* Bottom Related Tours Section */}
+            <div className="mt-16 sm:mt-20">
+              <RelatedTours currentSlug={tour.slug} />
+            </div>
           </Container>
         </section>
       </main>

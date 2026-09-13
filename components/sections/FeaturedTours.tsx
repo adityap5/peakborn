@@ -11,11 +11,11 @@ export function FeaturedTours() {
     <section className="py-16 sm:py-24 bg-white border-y border-line">
       <Container>
         <SectionHeading
-          kicker="Handpicked For You"
-          title="Featured India Journeys"
-          subtitle="Comfortably paced, privately chauffeured tour itineraries designed to give each stop room to breathe."
+          kicker="Top Tours"
+          title="Most Popular India Tour Packages"
+          subtitle="Explore our most sought-after private journeys, including same-day Agra excursions, classic Golden Triangle circuits, Rajasthan palaces, and wildlife tiger safaris."
           viewAllHref="/tour-packages"
-          viewAllLabel="View All Packages"
+          viewAllLabel="View All Tour Packages"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">

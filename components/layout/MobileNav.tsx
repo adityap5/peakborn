@@ -178,7 +178,7 @@ export function MobileNav({ items, company }: MobileNavProps) {
 
                       {/* Accordion Sub-items */}
                       {isExpanded && (
-                        <div className="pl-3 ml-2 border-l border-brand-gold/40 space-y-0.5 py-1 animate-in fade-in duration-150">
+                        <div className="pl-3 ml-2 border-l border-brand-gold/40 space-y-1 py-1 animate-in fade-in duration-150">
                           {item.children?.map((child) => {
                             const isChildActive = pathname === child.href;
                             return (
@@ -186,13 +186,22 @@ export function MobileNav({ items, company }: MobileNavProps) {
                                 key={child.href}
                                 href={child.href}
                                 onClick={() => setIsOpen(false)}
-                                className={`block px-2.5 py-1.5 rounded-md text-[11px] sm:text-xs transition-colors truncate ${
+                                className={`block px-2.5 py-1.5 rounded-md text-[11px] sm:text-xs transition-colors leading-snug ${
                                   isChildActive
                                     ? 'bg-brand-primary text-white font-semibold'
                                     : 'text-gray-700 hover:bg-cream-100 hover:text-brand-primary'
                                 }`}
                               >
-                                {child.label}
+                                <span className="font-medium block">{child.label}</span>
+                                {child.description && (
+                                  <span
+                                    className={`text-[10px] block line-clamp-1 mt-0.5 ${
+                                      isChildActive ? 'text-white/80' : 'text-gray-500'
+                                    }`}
+                                  >
+                                    {child.description}
+                                  </span>
+                                )}
                               </Link>
                             );
                           })}
