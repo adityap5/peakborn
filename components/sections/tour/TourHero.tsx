@@ -15,7 +15,7 @@ export function TourHero({ tour, company }: TourHeroProps) {
   const hasWhatsApp = Boolean(company.whatsappNumber && company.whatsappNumber.trim());
 
   return (
-    <section className="relative min-h-[460px] sm:min-h-[520px] flex items-center justify-center overflow-hidden bg-brand-navy text-white py-14 sm:py-20">
+    <section className="relative min-h-[460px] sm:min-h-[520px] flex items-center justify-center overflow-hidden bg-jet-black text-white py-14 sm:py-20">
       <Image
         src={tour.heroImage}
         alt={tour.title}
@@ -30,7 +30,7 @@ export function TourHero({ tour, company }: TourHeroProps) {
         {/* Top Badges Row */}
         <div className="flex items-center justify-center gap-2 flex-wrap">
           <Badge variant="dark" className="bg-black/60 border border-white/20 py-1 px-3 text-xs flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5 text-amber-400" />
+            <Clock className="w-3.5 h-3.5 text-desert-sand" />
             <span>{tour.durationLabel}</span>
           </Badge>
 
@@ -39,8 +39,8 @@ export function TourHero({ tour, company }: TourHeroProps) {
             <span>{tour.tourType}</span>
           </Badge>
 
-          <div className="inline-flex items-center gap-1 bg-black/60 border border-white/20 rounded-full px-3 py-1 text-xs text-amber-300 font-semibold">
-            <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+          <div className="inline-flex items-center gap-1 bg-black/60 border border-white/20 rounded-full px-3 py-1 text-xs text-desert-sand font-semibold">
+            <Star className="w-3 h-3 fill-desert-sand text-desert-sand" />
             <span>5.0</span>
             <span className="text-white/70 text-[11px]">(Verified Private Tour)</span>
           </div>
@@ -52,23 +52,23 @@ export function TourHero({ tour, company }: TourHeroProps) {
         </h1>
 
         {/* Route Line */}
-        <div className="flex items-center justify-center gap-2 text-sm sm:text-base text-slate-200 font-medium">
-          <MapPin className="w-4 h-4 text-brand-gold shrink-0" />
+        <div className="flex items-center justify-center gap-2 text-sm sm:text-base text-platinum/90 font-medium">
+          <MapPin className="w-4 h-4 text-desert-sand shrink-0" />
           <span>{tour.routeOverview}</span>
         </div>
 
         {/* Secondary Metadata: Pickup & Languages */}
         {(tour.pickupLocation || (tour.languages && tour.languages.length > 0)) && (
-          <div className="flex items-center justify-center gap-4 text-xs text-slate-300 flex-wrap pt-1">
+          <div className="flex items-center justify-center gap-4 text-xs text-dust-grey flex-wrap pt-1">
             {tour.pickupLocation && (
               <div className="flex items-center gap-1">
-                <Navigation className="w-3.5 h-3.5 text-brand-gold shrink-0" />
+                <Navigation className="w-3.5 h-3.5 text-desert-sand shrink-0" />
                 <span>Pickup: {tour.pickupLocation}</span>
               </div>
             )}
             {tour.languages && tour.languages.length > 0 && (
               <div className="flex items-center gap-1">
-                <Globe className="w-3.5 h-3.5 text-brand-gold shrink-0" />
+                <Globe className="w-3.5 h-3.5 text-desert-sand shrink-0" />
                 <span>Guides: {tour.languages.join(', ')}</span>
               </div>
             )}

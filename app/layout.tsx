@@ -44,7 +44,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${playfair.variable} ${jakarta.variable}`}>
-      <body className="min-h-screen flex flex-col font-sans bg-cream-50 text-brand-dark antialiased">
+      <body className="min-h-screen flex flex-col font-sans bg-platinum text-jet-black antialiased">
         {children}
       </body>
     </html>

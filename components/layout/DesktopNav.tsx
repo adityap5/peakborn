@@ -66,8 +66,8 @@ export function DesktopNav({ items }: DesktopNavProps) {
               href={item.href}
               className={`px-3.5 py-2 text-sm font-medium rounded-md transition-colors ${
                 isActive
-                  ? 'text-brand-primary font-semibold'
-                  : 'text-brand-dark/90 hover:text-brand-primary hover:bg-cream-50'
+                  ? 'text-burnt-peach font-bold'
+                  : 'text-jet-black hover:text-burnt-peach hover:bg-platinum'
               }`}
             >
               {item.label}
@@ -87,8 +87,8 @@ export function DesktopNav({ items }: DesktopNavProps) {
                 href={item.href}
                 className={`flex items-center gap-1 pl-3.5 pr-1.5 py-2 text-sm font-medium rounded-l-md transition-colors ${
                   isActive
-                    ? 'text-brand-primary font-semibold'
-                    : 'text-brand-dark/90 hover:text-brand-primary hover:bg-cream-50'
+                    ? 'text-burnt-peach font-bold'
+                    : 'text-jet-black hover:text-burnt-peach hover:bg-platinum'
                 }`}
                 aria-expanded={isOpen}
               >
@@ -97,15 +97,15 @@ export function DesktopNav({ items }: DesktopNavProps) {
               <button
                 type="button"
                 onClick={() => setOpenDropdown(isOpen ? null : item.label)}
-                className={`p-2 rounded-r-md transition-colors text-brand-dark/70 hover:text-brand-primary hover:bg-cream-50 ${
-                  isOpen ? 'text-brand-primary' : ''
+                className={`p-2 rounded-r-md transition-colors text-jet-black/70 hover:text-burnt-peach hover:bg-platinum ${
+                  isOpen ? 'text-burnt-peach' : ''
                 }`}
                 aria-label={`Toggle ${item.label} dropdown menu`}
                 aria-expanded={isOpen}
               >
                 <ChevronDown
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                    isOpen ? 'rotate-180 text-brand-primary' : ''
+                    isOpen ? 'rotate-180 text-burnt-peach' : ''
                   }`}
                 />
               </button>
@@ -114,7 +114,7 @@ export function DesktopNav({ items }: DesktopNavProps) {
             {/* Dropdown Menu */}
             {isOpen && (
               <div
-                className={`absolute top-full mt-1 bg-white/98 backdrop-blur-xs border border-line shadow-2xl rounded-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-150 ${
+                className={`absolute top-full mt-1 bg-white/98 backdrop-blur-xs border border-dust-grey shadow-2xl rounded-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-150 ${
                   isMultiColumn
                     ? 'left-1/2 -translate-x-1/2 w-[620px] xl:w-[680px] p-4'
                     : 'left-0 w-80 p-2'
@@ -124,16 +124,16 @@ export function DesktopNav({ items }: DesktopNavProps) {
               >
                 {/* Header banner for multi-column tour packages */}
                 {isMultiColumn && (
-                  <div className="flex items-center justify-between pb-3 mb-2 border-b border-line px-1">
+                  <div className="flex items-center justify-between pb-3 mb-2 border-b border-dust-grey px-1">
                     <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-lg bg-brand-primary/10 text-brand-primary flex items-center justify-center">
+                      <div className="w-7 h-7 rounded-lg bg-burnt-peach/15 text-burnt-peach flex items-center justify-center">
                         <Compass className="w-4 h-4" />
                       </div>
                       <div>
-                        <span className="font-serif font-bold text-sm text-brand-dark block leading-tight">
+                        <span className="font-serif font-bold text-sm text-jet-black block leading-tight">
                           Private Tour Packages
                         </span>
-                        <span className="text-[11px] text-gray-500 font-normal">
+                        <span className="text-[11px] text-jet-black/60 font-normal">
                           Handcrafted itineraries with private chauffeur &amp; local guide
                         </span>
                       </div>
@@ -141,9 +141,9 @@ export function DesktopNav({ items }: DesktopNavProps) {
                     <Link
                       href={item.href}
                       onClick={() => setOpenDropdown(null)}
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-brand-primary hover:underline"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-burnt-peach hover:underline"
                     >
-                      <span>View All (10)</span>
+                      <span>View All Packages</span>
                       <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>
@@ -161,25 +161,25 @@ export function DesktopNav({ items }: DesktopNavProps) {
                           onClick={() => setOpenDropdown(null)}
                           className={`group flex flex-col p-2.5 rounded-xl transition-all duration-150 ${
                             isChildActive
-                              ? 'bg-brand-primary/10 text-brand-primary'
-                              : 'hover:bg-cream-100/90 text-brand-dark'
+                              ? 'bg-burnt-peach/15 text-burnt-peach font-semibold'
+                              : 'hover:bg-platinum text-jet-black'
                           }`}
                           role="menuitem"
                         >
                           <div className="flex items-center justify-between text-xs font-semibold">
-                            <span className="group-hover:text-brand-primary transition-colors leading-snug">
+                            <span className="group-hover:text-burnt-peach transition-colors leading-snug">
                               {child.label}
                             </span>
                             <ArrowRight
                               className={`w-3 h-3 shrink-0 ml-1 transition-transform group-hover:translate-x-0.5 ${
                                 isChildActive
-                                  ? 'text-brand-primary'
-                                  : 'opacity-30 group-hover:opacity-100 group-hover:text-brand-primary'
+                                  ? 'text-burnt-peach'
+                                  : 'opacity-30 group-hover:opacity-100 group-hover:text-burnt-peach'
                               }`}
                             />
                           </div>
                           {child.description && (
-                            <span className="text-[11px] text-gray-500 line-clamp-1 mt-0.5 font-normal">
+                            <span className="text-[11px] text-jet-black/60 line-clamp-1 mt-0.5 font-normal">
                               {child.description}
                             </span>
                           )}
@@ -190,15 +190,15 @@ export function DesktopNav({ items }: DesktopNavProps) {
 
                 {/* Footer link for multi-column dropdown */}
                 {isMultiColumn && (
-                  <div className="mt-3 pt-2.5 border-t border-line/80 flex items-center justify-between text-xs px-2 text-gray-600 bg-cream-50/60 rounded-xl p-2">
+                  <div className="mt-3 pt-2.5 border-t border-dust-grey/80 flex items-center justify-between text-xs px-2 text-jet-black/80 bg-platinum/60 rounded-xl p-2">
                     <div className="flex items-center gap-1.5 text-[11px]">
-                      <Sparkles className="w-3.5 h-3.5 text-brand-gold shrink-0" />
+                      <Sparkles className="w-3.5 h-3.5 text-desert-sand shrink-0" />
                       <span>Need a custom route or dates?</span>
                     </div>
                     <Link
                       href="/contact"
                       onClick={() => setOpenDropdown(null)}
-                      className="font-bold text-brand-primary hover:underline text-[11px]"
+                      className="font-bold text-burnt-peach hover:underline text-[11px]"
                     >
                       Request Custom Trip &rarr;
                     </Link>

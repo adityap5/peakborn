@@ -28,29 +28,29 @@ export function WhyChooseUsSection() {
   ];
 
   return (
-    <section className="relative bg-brand-navy text-white overflow-hidden py-16 sm:py-24">
+    <section className="relative bg-jet-black text-white overflow-hidden py-16 sm:py-24">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/parallax-taj.jpg"
           alt="Taj Mahal Agra India"
           fill
           sizes="100vw"
-          className="object-cover object-[center_35%] opacity-25"
+          className="object-cover object-[center_35%] opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/95 via-brand-navy/90 to-brand-navy/95 lg:bg-gradient-to-r lg:from-brand-navy/95 lg:via-brand-navy/90 lg:to-brand-navy/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-jet-black/95 via-jet-black/90 to-jet-black/95 lg:bg-gradient-to-r lg:from-jet-black/95 lg:via-jet-black/90 lg:to-jet-black/80" />
       </div>
 
       <Container className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           <div className="lg:col-span-5 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-amber-400 block">
+            <span className="text-xs font-bold uppercase tracking-widest text-desert-sand block">
               Why Travel With Us
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
               Your India. <br />
-              <span className="text-amber-400">Our Expertise.</span>
+              <span className="text-desert-sand">Our Expertise.</span>
             </h2>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans pt-2">
+            <p className="text-sm sm:text-base text-dust-grey leading-relaxed font-sans pt-2">
               We design personal, meaningful, and unforgettable India journeys with meticulous care, deep on-ground knowledge, and unhurried pacing.
             </p>
           </div>
@@ -61,15 +61,15 @@ export function WhyChooseUsSection() {
               return (
                 <div
                   key={index}
-                  className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xs hover:border-amber-400/40 transition-colors"
+                  className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xs hover:border-desert-sand/50 transition-colors"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-amber-400/10 text-amber-400 flex items-center justify-center mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-desert-sand/15 text-desert-sand flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-serif font-bold text-lg text-white mb-2">
+                  <h3 className="font-serif font-bold text-lg text-platinum mb-2">
                     {point.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+                  <p className="text-xs sm:text-sm text-dust-grey leading-relaxed font-sans">
                     {point.description}
                   </p>
                 </div>

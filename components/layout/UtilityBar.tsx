@@ -7,26 +7,26 @@ export function UtilityBar() {
   const company = getCompanyInfo();
 
   return (
-    <aside aria-label="Quick contact" className="bg-brand-navy text-slate-200 text-xs border-b border-slate-800/80">
+    <aside aria-label="Quick contact" className="bg-jet-black text-platinum text-xs border-b border-white/10">
       <Container className="flex flex-col sm:flex-row items-center justify-between py-2 gap-2 text-center sm:text-left">
-        <p className="text-slate-300 font-medium tracking-wide">
+        <p className="text-dust-grey font-medium tracking-wide">
           {company.tagline || 'Explore India with Local Experts | Personalized Journeys | Authentic Experiences'}
         </p>
 
         <div className="flex items-center flex-wrap justify-center gap-4 sm:gap-6">
           <a
             href={`tel:${company.phone.replace(/[^0-9+]/g, '')}`}
-            className="inline-flex items-center gap-1.5 hover:text-brand-gold transition-colors"
+            className="inline-flex items-center gap-1.5 hover:text-desert-sand transition-colors text-platinum"
           >
-            <Phone className="w-3.5 h-3.5 text-brand-gold" />
+            <Phone className="w-3.5 h-3.5 text-desert-sand" />
             <span>{company.displayPhone || company.phone}</span>
           </a>
 
           <a
             href={`mailto:${company.email}`}
-            className="inline-flex items-center gap-1.5 hover:text-brand-gold transition-colors"
+            className="inline-flex items-center gap-1.5 hover:text-desert-sand transition-colors text-platinum"
           >
-            <Mail className="w-3.5 h-3.5 text-brand-gold" />
+            <Mail className="w-3.5 h-3.5 text-desert-sand" />
             <span>{company.email}</span>
           </a>
 
@@ -38,7 +38,7 @@ export function UtilityBar() {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-medium transition-colors"
+              className="inline-flex items-center gap-1.5 text-emerald-300 hover:text-emerald-200 font-medium transition-colors"
             >
               <MessageSquare className="w-3.5 h-3.5 text-[#25D366]" />
               <span>WhatsApp</span>

@@ -12,12 +12,12 @@ export function RelatedTours({ currentSlug }: RelatedToursProps) {
   if (!relatedTours || relatedTours.length === 0) return null;
 
   return (
-    <section className="space-y-6 pt-6 border-t border-line">
+    <section className="space-y-6 pt-6 border-t border-dust-grey">
       <div>
-        <span className="text-xs font-bold uppercase tracking-wider text-brand-primary block mb-1">
+        <span className="text-xs font-bold uppercase tracking-wider text-burnt-peach block mb-1">
           Explore Alternatives
         </span>
-        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-dark">
+        <h2 className="font-serif text-2xl sm:text-3xl font-bold text-jet-black">
           Similar &amp; Related Tour Packages
         </h2>
       </div>

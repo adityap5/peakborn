@@ -26,16 +26,16 @@ export default function ContactPage() {
       <Header />
       <Breadcrumbs items={[{ label: 'Contact Us' }]} />
 
-      <main id="main-content" className="flex-1 py-12 sm:py-18 bg-cream-50">
+      <main id="main-content" className="flex-1 py-12 sm:py-18 bg-platinum/40">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-primary block mb-2">
+            <span className="text-xs font-bold uppercase tracking-widest text-burnt-peach block mb-2">
               Start Planning
             </span>
-            <h1 className="font-serif text-3xl sm:text-5xl font-bold text-brand-dark tracking-tight leading-tight">
+            <h1 className="font-serif text-3xl sm:text-5xl font-bold text-jet-black tracking-tight leading-tight">
               Contact Our Travel Desk
             </h1>
-            <p className="text-sm sm:text-base text-gray-600 mt-2">
+            <p className="text-sm sm:text-base text-jet-black/75 mt-2">
               Have questions about an itinerary, dates, or custom routing? Reach out to our local destination experts.
             </p>
           </div>
@@ -43,46 +43,46 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             {/* Left Contact Information Card (5 cols) */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="p-6 sm:p-8 rounded-2xl bg-white border border-line shadow-xs space-y-6">
-                <h2 className="font-serif text-xl font-bold text-brand-dark pb-3 border-b border-line">
+              <div className="p-6 sm:p-8 rounded-2xl bg-white border border-dust-grey shadow-xs space-y-6">
+                <h2 className="font-serif text-xl font-bold text-jet-black pb-3 border-b border-dust-grey">
                   Direct Inquiries
                 </h2>
 
-                <div className="space-y-4 text-sm text-gray-700">
+                <div className="space-y-4 text-sm text-jet-black/85">
                   <div className="flex items-start gap-3.5">
-                    <MapPin className="w-5 h-5 text-brand-primary shrink-0 mt-0.5" />
+                    <MapPin className="w-5 h-5 text-burnt-peach shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-brand-dark font-semibold">Office Address</strong>
-                      <span className="text-gray-600 text-xs sm:text-sm">{company.address}</span>
+                      <strong className="block text-jet-black font-semibold">Office Address</strong>
+                      <span className="text-jet-black/70 text-xs sm:text-sm">{company.address}</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3.5">
-                    <Phone className="w-5 h-5 text-brand-primary shrink-0 mt-0.5" />
+                    <Phone className="w-5 h-5 text-burnt-peach shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-brand-dark font-semibold">Telephone Desk</strong>
-                      <a href={`tel:${company.phone.replace(/[^0-9+]/g, '')}`} className="text-brand-primary hover:underline font-medium text-xs sm:text-sm">
+                      <strong className="block text-jet-black font-semibold">Telephone Desk</strong>
+                      <a href={`tel:${company.phone.replace(/[^0-9+]/g, '')}`} className="text-burnt-peach hover:underline font-medium text-xs sm:text-sm">
                         {company.displayPhone || company.phone}
                       </a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3.5">
-                    <Mail className="w-5 h-5 text-brand-primary shrink-0 mt-0.5" />
+                    <Mail className="w-5 h-5 text-burnt-peach shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-brand-dark font-semibold">Email Support</strong>
-                      <a href={`mailto:${company.email}`} className="text-brand-primary hover:underline font-medium text-xs sm:text-sm">
+                      <strong className="block text-jet-black font-semibold">Email Support</strong>
+                      <a href={`mailto:${company.email}`} className="text-burnt-peach hover:underline font-medium text-xs sm:text-sm">
                         {company.email}
                       </a>
                     </div>
                   </div>
 
                   {company.operatingHours && (
-                    <div className="flex items-start gap-3.5 pt-2 border-t border-dashed border-line">
-                      <Clock className="w-5 h-5 text-brand-gold shrink-0 mt-0.5" />
+                    <div className="flex items-start gap-3.5 pt-2 border-t border-dashed border-dust-grey">
+                      <Clock className="w-5 h-5 text-burnt-peach shrink-0 mt-0.5" />
                       <div>
-                        <strong className="block text-brand-dark font-semibold">Operating Hours</strong>
-                        <span className="text-gray-600 text-xs">{company.operatingHours}</span>
+                        <strong className="block text-jet-black font-semibold">Operating Hours</strong>
+                        <span className="text-jet-black/70 text-xs">{company.operatingHours}</span>
                       </div>
                     </div>
                   )}
@@ -108,7 +108,7 @@ export default function ContactPage() {
 
             {/* Right Trip Planner Form (7 cols) */}
             <div className="lg:col-span-7">
-              <ContactForm className="shadow-lg border-line" />
+              <ContactForm className="shadow-lg border-dust-grey" />
             </div>
           </div>
         </Container>

@@ -11,7 +11,7 @@ export function FinalCtaBanner() {
   const hasWhatsApp = Boolean(company.whatsappNumber && company.whatsappNumber.trim());
 
   return (
-    <section className="relative bg-brand-navy text-white overflow-hidden py-16 sm:py-24">
+    <section className="relative bg-jet-black text-white overflow-hidden py-16 sm:py-24">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/lower_banner.webp"
@@ -20,11 +20,11 @@ export function FinalCtaBanner() {
           sizes="100vw"
           className="object-cover object-[center_40%] opacity-35"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-brand-navy/90 to-black/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-jet-black/90 to-black/90" />
       </div>
 
       <Container className="relative z-10 text-center max-w-3xl mx-auto space-y-6">
-        <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-400 bg-black/40 px-3.5 py-1 rounded-full border border-white/10">
+        <span className="inline-block text-xs font-bold uppercase tracking-widest text-desert-sand bg-black/40 px-3.5 py-1 rounded-full border border-white/10">
           Start Your Custom Holiday
         </span>
 
@@ -32,7 +32,7 @@ export function FinalCtaBanner() {
           Let’s Plan Your India Journey
         </h2>
 
-        <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-sans max-w-xl mx-auto">
+        <p className="text-sm sm:text-base text-platinum/90 leading-relaxed font-sans max-w-xl mx-auto">
           Share your dates, interests, and preferred pacing. Our destination specialists will craft a complimentary customized itinerary tailored to your vision.
         </p>
 

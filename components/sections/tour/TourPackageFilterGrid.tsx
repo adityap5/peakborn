@@ -67,14 +67,14 @@ export function TourPackageFilterGrid({ tours, company }: TourPackageFilterGridP
               onClick={() => setUserSelectedCategory(cat.id)}
               className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
                 isActive
-                  ? 'bg-brand-primary text-white shadow-md'
-                  : 'bg-white text-gray-700 border border-line hover:bg-cream-100 hover:border-brand-primary/30'
+                  ? 'bg-burnt-peach text-jet-black font-bold shadow-md'
+                  : 'bg-white text-jet-black border border-dust-grey hover:bg-platinum hover:border-desert-sand'
               }`}
             >
               <span>{cat.label}</span>
               <span
                 className={`text-[11px] px-1.5 py-0.2 rounded-full ${
-                  isActive ? 'bg-white/25 text-white' : 'bg-cream-200 text-gray-600'
+                  isActive ? 'bg-jet-black/20 text-jet-black font-bold' : 'bg-platinum text-jet-black/70'
                 }`}
               >
                 {count}
@@ -86,14 +86,14 @@ export function TourPackageFilterGrid({ tours, company }: TourPackageFilterGridP
 
       {/* Results Count & Grid */}
       <div>
-        <div className="text-xs text-gray-500 mb-4 flex items-center justify-between">
+        <div className="text-xs text-jet-black/60 mb-4 flex items-center justify-between">
           <span>
             Showing <strong>{filteredTours.length}</strong> {filteredTours.length === 1 ? 'itinerary' : 'itineraries'}
           </span>
           {activeCategory !== 'all' && (
             <button
               onClick={() => setUserSelectedCategory('all')}
-              className="text-xs text-brand-primary hover:underline font-semibold"
+              className="text-xs text-burnt-peach hover:underline font-semibold"
             >
               Show all packages
             </button>

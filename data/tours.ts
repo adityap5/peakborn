@@ -920,7 +920,7 @@ export const tourPackagesData: TourPackage[] = [
     dropLocation: 'Any hotel in Delhi or Udaipur Airport / Railway Station & Desired Location.',
     languages: ['English', 'Spanish', 'German', 'French', 'Russian', 'Japanese', 'Italian', 'Hindi'],
     heroImage: '/images/rajasthan.jpg',
-    thumbnailImage: '/images/journey-rajasthan-13.jpg',
+    thumbnailImage: '/images/taj-mahal-sunrise-tour-from-delhi-by-car/imgi_15_1780733296_Rajasthan.webp',
     galleryImages: [
       '/images/taj-mahal.jpg',
       '/images/rajasthan.jpg',
@@ -1088,7 +1088,7 @@ export const tourPackagesData: TourPackage[] = [
     dropLocation: 'Any hotel in Delhi or Jodhpur Airport / Railway Station & Desired Location.',
     languages: ['English', 'Spanish', 'German', 'French', 'Russian', 'Japanese', 'Italian', 'Hindi'],
     heroImage: '/images/rajasthan.jpg',
-    thumbnailImage: '/images/rajasthan.jpg',
+    thumbnailImage: '/images/taj-mahal-sunrise-tour-from-delhi-by-car/imgi_9_1780655439_Varanasi.webp',
     galleryImages: [
       '/images/taj-mahal.jpg',
       '/images/rajasthan.jpg',
@@ -1256,7 +1256,7 @@ export const tourPackagesData: TourPackage[] = [
     dropLocation: 'Any hotel in Delhi or Udaipur Airport / Railway Station & Desired Location.',
     languages: ['English', 'Spanish', 'German', 'French', 'Russian', 'Japanese', 'Italian', 'Hindi'],
     heroImage: '/images/journey-rajasthan-13.jpg',
-    thumbnailImage: '/images/journey-rajasthan-13.jpg',
+    thumbnailImage: '/images/taj-mahal-sunrise-tour-from-delhi-by-car/imgi_1_1780647700_Untitled design.webp',
     galleryImages: [
       '/images/journey-rajasthan-13.jpg',
       '/images/rajasthan.jpg',

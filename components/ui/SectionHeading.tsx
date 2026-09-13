@@ -32,15 +32,15 @@ export function SectionHeading({
     >
       <div className={align === 'center' ? 'max-w-2xl mx-auto' : 'max-w-2xl'}>
         {kicker && (
-          <span className="block text-xs font-bold uppercase tracking-widest text-brand-primary mb-2">
+          <span className="block text-xs font-bold uppercase tracking-widest text-burnt-peach mb-2">
             {kicker}
           </span>
         )}
-        <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-dark tracking-tight leading-tight">
+        <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-jet-black tracking-tight leading-tight">
           {title}
         </h2>
         {subtitle && (
-          <p className="mt-2 text-sm sm:text-base text-gray-600 leading-relaxed">
+          <p className="mt-2 text-sm sm:text-base text-jet-black/75 leading-relaxed font-sans">
             {subtitle}
           </p>
         )}
@@ -50,7 +50,7 @@ export function SectionHeading({
         <div className={cn('shrink-0', align === 'center' && 'mt-4')}>
           <Link
             href={viewAllHref}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary hover:text-brand-primary-hover transition-colors group"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-burnt-peach hover:text-burnt-peach-hover transition-colors group"
           >
             <span>{viewAllLabel}</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

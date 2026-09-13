@@ -83,7 +83,7 @@ export default async function TravelStyleDetailPage({ params }: TravelStylePageP
 
       <main id="main-content" className="flex-1">
         {/* Hero */}
-        <section className="relative min-h-[380px] sm:min-h-[440px] flex items-center justify-center overflow-hidden bg-brand-navy text-white py-14">
+        <section className="relative min-h-[380px] sm:min-h-[440px] flex items-center justify-center overflow-hidden bg-jet-black text-white py-14">
           <Image
             src={style.heroImage}
             alt={style.title}
@@ -95,7 +95,7 @@ export default async function TravelStyleDetailPage({ params }: TravelStylePageP
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30" />
 
           <Container className="relative z-10 text-center max-w-3xl mx-auto space-y-4">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-300 bg-black/40 px-3.5 py-1 rounded-full border border-white/10">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-desert-sand bg-black/40 px-3.5 py-1 rounded-full border border-white/10">
               Travel Theme
             </span>
 
@@ -103,14 +103,14 @@ export default async function TravelStyleDetailPage({ params }: TravelStylePageP
               {style.title}
             </h1>
 
-            <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-sans max-w-xl mx-auto">
+            <p className="text-sm sm:text-base text-platinum/90 leading-relaxed font-sans max-w-xl mx-auto">
               {style.fullDescription}
             </p>
           </Container>
         </section>
 
         {/* Packages Section */}
-        <section className="py-14 sm:py-20 bg-cream-50 border-b border-line">
+        <section className="py-14 sm:py-20 bg-platinum/40 border-b border-dust-grey">
           <Container>
             <SectionHeading
               kicker="Handpicked Journeys"
@@ -127,8 +127,8 @@ export default async function TravelStyleDetailPage({ params }: TravelStylePageP
                 ))}
               </div>
             ) : (
-              <div className="text-center py-12 bg-white rounded-2xl border border-line p-8 max-w-md mx-auto">
-                <p className="text-sm text-gray-600 mb-4">
+              <div className="text-center py-12 bg-white rounded-2xl border border-dust-grey p-8 max-w-md mx-auto">
+                <p className="text-sm text-jet-black/80 mb-4">
                   We create bespoke private itineraries for {style.title}. Tell us your preferences and we will curate a custom holiday plan for you.
                 </p>
               </div>
@@ -140,15 +140,15 @@ export default async function TravelStyleDetailPage({ params }: TravelStylePageP
         <section className="py-16 sm:py-24 bg-white">
           <Container className="max-w-3xl">
             <div className="text-center mb-8">
-              <span className="text-xs font-bold uppercase tracking-widest text-brand-primary block mb-1">
+              <span className="text-xs font-bold uppercase tracking-widest text-burnt-peach block mb-1">
                 Custom Curation
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-dark tracking-tight">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-jet-black tracking-tight">
                 Plan Your {style.title} Holiday
               </h2>
             </div>
 
-            <ContactForm className="shadow-lg border-line" />
+            <ContactForm className="shadow-lg border-dust-grey" />
           </Container>
         </section>
       </main>

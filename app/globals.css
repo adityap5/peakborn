@@ -4,25 +4,58 @@
   --font-serif: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
   --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   
-  --color-brand-primary: #c26122;
-  --color-brand-primary-hover: #a84e17;
-  --color-brand-gold: #c8862e;
-  --color-brand-navy: #0f2a3d;
-  --color-brand-dark: #1f1b18;
-  --color-cream-50: #faf7f2;
-  --color-cream-100: #f5efe6;
-  --color-cream-200: #eae1d2;
-  --color-line: #e4ddd3;
+  /* Brand Palette Raw Tokens */
+  --color-jet-black: #223843;
+  --color-platinum: #eff1f3;
+  --color-dust-grey: #dbd3d8;
+  --color-desert-sand: #d8b4a0;
+  --color-burnt-peach: #d77a61;
+  --color-burnt-peach-hover: #c46850;
+
+  /* Semantic Theme Tokens */
+  --color-primary: #223843;
+  --color-primary-hover: #192b33;
+  --color-primary-foreground: #eff1f3;
+
+  --color-background: #eff1f3;
+  --color-surface: #ffffff;
+  --color-surface-muted: #eff1f3;
+  --color-surface-warm: #d8b4a0;
+  
+  --color-border: #dbd3d8;
+  --color-border-accent: #d8b4a0;
+
+  --color-accent: #d77a61;
+  --color-accent-hover: #c46850;
+  --color-accent-foreground: #223843;
+  --color-secondary-accent: #d8b4a0;
+  --color-secondary-accent-foreground: #223843;
+
+  --color-muted: #5c707a;
+  --color-muted-dark: #dbd3d8;
+
+  /* Semantic Compatibility Aliases */
+  --color-brand-primary: #d77a61;
+  --color-brand-primary-hover: #c46850;
+  --color-brand-gold: #d8b4a0;
+  --color-brand-navy: #223843;
+  --color-brand-dark: #223843;
+  --color-cream-50: #eff1f3;
+  --color-cream-100: #e5e9ec;
+  --color-cream-200: #dbd3d8;
+  --color-line: #dbd3d8;
 }
 
 :root {
-  --background: #faf7f2;
-  --foreground: #1f1b18;
+  --background: #eff1f3;
+  --foreground: #223843;
   --card: #ffffff;
-  --card-foreground: #1f1b18;
-  --primary: #c26122;
-  --primary-foreground: #ffffff;
-  --border: #e4ddd3;
+  --card-foreground: #223843;
+  --primary: #223843;
+  --primary-foreground: #eff1f3;
+  --accent: #d77a61;
+  --accent-foreground: #223843;
+  --border: #dbd3d8;
 }
 
 html {

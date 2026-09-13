@@ -64,7 +64,7 @@ export function MobileNav({ items, company }: MobileNavProps) {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="inline-flex items-center justify-center p-2 rounded-md text-brand-dark hover:text-brand-primary hover:bg-cream-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+        className="inline-flex items-center justify-center p-2 rounded-md text-jet-black hover:text-burnt-peach hover:bg-platinum transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-burnt-peach"
         aria-label="Open main navigation menu"
         aria-expanded={isOpen}
       >
@@ -90,23 +90,23 @@ export function MobileNav({ items, company }: MobileNavProps) {
 
             {/* Half-screen Mobile Drawer with minimal blur */}
             <div
-              className="relative z-10 w-1/2 min-w-[220px] max-w-[85vw] sm:w-72 h-full bg-cream-50/98 backdrop-blur-xs text-brand-dark shadow-2xl flex flex-col animate-in slide-in-from-right duration-300 ease-in-out border-l border-line"
+              className="relative z-10 w-1/2 min-w-[220px] max-w-[85vw] sm:w-72 h-full bg-platinum/98 backdrop-blur-xs text-jet-black shadow-2xl flex flex-col animate-in slide-in-from-right duration-300 ease-in-out border-l border-dust-grey"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header inside drawer */}
-              <div className="flex items-center justify-between p-3.5 sm:p-4 border-b border-line bg-white/95 shrink-0">
+              <div className="flex items-center justify-between p-3.5 sm:p-4 border-b border-dust-grey bg-white/95 shrink-0">
                 <div className="min-w-0 pr-2">
-                  <span className="font-serif font-bold text-base sm:text-lg text-brand-dark tracking-tight truncate block">
+                  <span className="font-serif font-bold text-base sm:text-lg text-jet-black tracking-tight truncate block">
                     {company.name}
                   </span>
-                  <span className="block text-[9px] sm:text-[10px] text-brand-gold uppercase tracking-wider font-semibold truncate">
+                  <span className="block text-[9px] sm:text-[10px] text-desert-sand uppercase tracking-wider font-semibold truncate">
                     Journeys for a Richer You
                   </span>
                 </div>
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="p-1.5 sm:p-2 rounded-md text-gray-500 hover:text-brand-dark hover:bg-cream-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary shrink-0"
+                  className="p-1.5 sm:p-2 rounded-md text-jet-black/60 hover:text-jet-black hover:bg-platinum transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-burnt-peach shrink-0"
                   aria-label="Close navigation menu"
                 >
                   <X className="w-5 h-5" />
@@ -130,15 +130,15 @@ export function MobileNav({ items, company }: MobileNavProps) {
                         onClick={() => setIsOpen(false)}
                         className={`flex items-center justify-between px-3 py-2 rounded-md font-medium text-xs sm:text-sm transition-colors ${
                           isActive
-                            ? 'bg-brand-primary text-white font-semibold'
-                            : 'text-brand-dark hover:bg-cream-100 hover:text-brand-primary'
+                            ? 'bg-burnt-peach text-jet-black font-bold'
+                            : 'text-jet-black hover:bg-platinum hover:text-burnt-peach'
                         }`}
                         aria-current={isActive ? 'page' : undefined}
                       >
                         <span className="truncate">{item.label}</span>
                         <ArrowRight
                           className={`w-3.5 h-3.5 shrink-0 ml-1 opacity-60 ${
-                            isActive ? 'text-white' : ''
+                            isActive ? 'text-jet-black' : ''
                           }`}
                         />
                       </Link>
@@ -150,8 +150,8 @@ export function MobileNav({ items, company }: MobileNavProps) {
                       <div
                         className={`flex items-center justify-between px-3 py-2 rounded-md font-medium text-xs sm:text-sm transition-colors ${
                           isActive
-                            ? 'bg-brand-primary/10 text-brand-primary font-semibold'
-                            : 'text-brand-dark hover:bg-cream-100 hover:text-brand-primary'
+                            ? 'bg-burnt-peach/15 text-burnt-peach font-bold'
+                            : 'text-jet-black hover:bg-platinum hover:text-burnt-peach'
                         }`}
                       >
                         <Link
@@ -164,13 +164,13 @@ export function MobileNav({ items, company }: MobileNavProps) {
                         <button
                           type="button"
                           onClick={() => toggleSection(item.label, isExpanded)}
-                          className="p-1 -mr-1 rounded hover:bg-black/5 text-gray-500 hover:text-brand-dark transition-colors"
+                          className="p-1 -mr-1 rounded hover:bg-black/5 text-jet-black/60 hover:text-jet-black transition-colors"
                           aria-label={`Toggle ${item.label} list`}
                           aria-expanded={isExpanded}
                         >
                           <ChevronDown
                             className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                              isExpanded ? 'rotate-180 text-brand-primary' : ''
+                              isExpanded ? 'rotate-180 text-burnt-peach' : ''
                             }`}
                           />
                         </button>
@@ -178,7 +178,7 @@ export function MobileNav({ items, company }: MobileNavProps) {
 
                       {/* Accordion Sub-items */}
                       {isExpanded && (
-                        <div className="pl-3 ml-2 border-l border-brand-gold/40 space-y-1 py-1 animate-in fade-in duration-150">
+                        <div className="pl-3 ml-2 border-l border-desert-sand/60 space-y-1 py-1 animate-in fade-in duration-150">
                           {item.children?.map((child) => {
                             const isChildActive = pathname === child.href;
                             return (
@@ -188,15 +188,15 @@ export function MobileNav({ items, company }: MobileNavProps) {
                                 onClick={() => setIsOpen(false)}
                                 className={`block px-2.5 py-1.5 rounded-md text-[11px] sm:text-xs transition-colors leading-snug ${
                                   isChildActive
-                                    ? 'bg-brand-primary text-white font-semibold'
-                                    : 'text-gray-700 hover:bg-cream-100 hover:text-brand-primary'
+                                    ? 'bg-burnt-peach text-jet-black font-bold'
+                                    : 'text-jet-black/85 hover:bg-platinum hover:text-burnt-peach'
                                 }`}
                               >
                                 <span className="font-medium block">{child.label}</span>
                                 {child.description && (
                                   <span
                                     className={`text-[10px] block line-clamp-1 mt-0.5 ${
-                                      isChildActive ? 'text-white/80' : 'text-gray-500'
+                                      isChildActive ? 'text-jet-black/70' : 'text-jet-black/50'
                                     }`}
                                   >
                                     {child.description}
@@ -211,7 +211,7 @@ export function MobileNav({ items, company }: MobileNavProps) {
                   );
                 })}
 
-                <div className="mt-5 pt-3.5 border-t border-line space-y-2">
+                <div className="mt-5 pt-3.5 border-t border-dust-grey space-y-2">
                   <Link href="/contact" onClick={() => setIsOpen(false)} className="w-full block">
                     <Button variant="primary" size="sm" className="w-full justify-center text-xs sm:text-sm">
                       Plan Your Trip
@@ -221,20 +221,20 @@ export function MobileNav({ items, company }: MobileNavProps) {
               </nav>
 
               {/* Quick thumb contact footer in drawer */}
-              <div className="p-3 sm:p-4 border-t border-line bg-white/95 space-y-1.5 text-[11px] sm:text-xs text-gray-600 shrink-0">
+              <div className="p-3 sm:p-4 border-t border-dust-grey bg-white/95 space-y-1.5 text-[11px] sm:text-xs text-jet-black/75 shrink-0">
                 <a
                   href={`tel:${company.phone.replace(/[^0-9+]/g, '')}`}
-                  className="flex items-center gap-2 py-1 hover:text-brand-primary truncate"
+                  className="flex items-center gap-2 py-1 hover:text-burnt-peach truncate"
                 >
-                  <Phone className="w-3.5 h-3.5 text-brand-primary shrink-0" />
+                  <Phone className="w-3.5 h-3.5 text-burnt-peach shrink-0" />
                   <span className="font-medium truncate">{company.displayPhone || company.phone}</span>
                 </a>
 
                 <a
                   href={`mailto:${company.email}`}
-                  className="flex items-center gap-2 py-1 hover:text-brand-primary truncate"
+                  className="flex items-center gap-2 py-1 hover:text-burnt-peach truncate"
                 >
-                  <Mail className="w-3.5 h-3.5 text-brand-primary shrink-0" />
+                  <Mail className="w-3.5 h-3.5 text-burnt-peach shrink-0" />
                   <span className="truncate">{company.email}</span>
                 </a>
 

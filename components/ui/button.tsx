@@ -3,29 +3,31 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 select-none cursor-pointer',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-burnt-peach focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 select-none cursor-pointer',
   {
     variants: {
       variant: {
         primary:
-          'bg-brand-primary text-white shadow-sm hover:bg-brand-primary-hover active:scale-[0.98]',
+          'bg-burnt-peach text-jet-black font-bold shadow-sm hover:bg-burnt-peach-hover active:scale-[0.98]',
         secondary:
-          'bg-brand-navy text-white shadow-sm hover:bg-slate-800 active:scale-[0.98]',
+          'bg-jet-black text-platinum shadow-sm hover:bg-jet-black/90 active:scale-[0.98]',
         outline:
-          'border border-brand-primary text-brand-primary bg-transparent hover:bg-brand-primary hover:text-white',
+          'border border-jet-black text-jet-black bg-transparent hover:bg-jet-black hover:text-platinum active:scale-[0.98]',
         outlineInvert:
-          'border border-white/80 text-white bg-transparent hover:bg-white hover:text-brand-navy',
+          'border border-platinum text-platinum bg-transparent hover:bg-platinum hover:text-jet-black active:scale-[0.98]',
+        soft:
+          'bg-desert-sand text-jet-black font-semibold hover:bg-desert-sand/85 active:scale-[0.98]',
         ghost:
-          'text-brand-dark hover:bg-cream-100 hover:text-brand-primary',
+          'text-jet-black hover:bg-platinum hover:text-burnt-peach',
         link:
-          'text-brand-primary underline-offset-4 hover:underline p-0 h-auto',
+          'text-burnt-peach underline-offset-4 hover:underline p-0 h-auto font-medium',
         whatsapp:
           'bg-[#25D366] text-white hover:bg-[#20bd5a] active:scale-[0.98]',
       },
       size: {
         default: 'h-11 px-5 py-2.5',
         sm: 'h-9 px-3.5 text-xs',
-        lg: 'h-12 px-7 text-base font-medium',
+        lg: 'h-12 px-7 text-base font-semibold',
         icon: 'h-10 w-10',
       },
     },

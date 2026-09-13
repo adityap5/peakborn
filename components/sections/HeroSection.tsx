@@ -12,7 +12,7 @@ export function HeroSection() {
   const hasWhatsApp = Boolean(company.whatsappNumber && company.whatsappNumber.trim());
 
   return (
-    <section className="relative bg-brand-navy text-white overflow-hidden">
+    <section className="relative bg-jet-black text-white overflow-hidden">
       {/* Background Image with Warm Gradient Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -30,17 +30,17 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Hero Storytelling Column (7 cols) */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 backdrop-blur-xs border border-white/20 text-brand-gold text-xs font-bold uppercase tracking-wider">
-              <Compass className="w-3.5 h-3.5 text-brand-gold" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 backdrop-blur-xs border border-white/20 text-desert-sand text-xs font-bold uppercase tracking-wider">
+              <Compass className="w-3.5 h-3.5 text-desert-sand" />
               <span>Tailored Journeys · Unforgettable Memories</span>
             </div>
 
             <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-              Discover the World with <br />
-              <span className="text-brand-gold">{company.name}</span>
+              Discover the India with <br />
+              <span className="text-burnt-peach">{company.name}</span>
             </h1>
 
-            <p className="text-sm sm:text-base lg:text-lg text-slate-200 leading-relaxed max-w-xl font-sans">
+            <p className="text-sm sm:text-base lg:text-lg text-platinum/90 leading-relaxed max-w-xl font-sans">
               Tailor-made India journeys crafted just for you. From iconic Golden Triangle heritage circuits to royal Rajasthan havelis, wild tiger safaris, and serene Kerala backwaters.
             </p>
 
@@ -68,9 +68,9 @@ export function HeroSection() {
               ) : company.phone ? (
                 <a
                   href={`tel:${company.phone.replace(/[^0-9+]/g, '')}`}
-                  className="inline-flex items-center gap-2 rounded-md bg-cream-100 hover:bg-cream-200 text-brand-dark px-5 py-3 text-sm font-bold shadow-lg transition-colors"
+                  className="inline-flex items-center gap-2 rounded-md bg-platinum hover:bg-white text-jet-black px-5 py-3 text-sm font-bold shadow-lg transition-colors"
                 >
-                  <Phone className="w-4 h-4 text-brand-primary" />
+                  <Phone className="w-4 h-4 text-burnt-peach" />
                   <span>Talk to Expert</span>
                 </a>
               ) : null}
@@ -80,7 +80,7 @@ export function HeroSection() {
             <div className="hidden sm:grid grid-cols-3 gap-3 pt-4 max-w-lg">
               <Link
                 href="/tour-packages/delhi-agra-jaipur-5-days-golden-triangle-tour"
-                className="group relative rounded-xl overflow-hidden aspect-[4/3] bg-black/40 border border-white/20 p-3 flex flex-col justify-end transition-transform hover:-translate-y-1"
+                className="group relative rounded-xl overflow-hidden aspect-[4/3] bg-black/40 border border-white/20 p-3 flex flex-col justify-end transition-transform hover:-translate-y-1 hover:border-desert-sand/50"
               >
                 <Image
                   src="/images/taj-mahal.jpg"
@@ -91,14 +91,14 @@ export function HeroSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
                 <div className="relative z-10 text-white">
-                  <span className="text-[10px] text-amber-300 font-bold block uppercase tracking-wider">05 Days</span>
+                  <span className="text-[10px] text-desert-sand font-bold block uppercase tracking-wider">05 Days</span>
                   <strong className="text-xs font-serif block truncate">Taj Mahal &amp; GT</strong>
                 </div>
               </Link>
 
               <Link
                 href="/tour-packages/taj-mahal-sunrise-tour-from-delhi-by-car"
-                className="group relative rounded-xl overflow-hidden aspect-[4/3] bg-black/40 border border-white/20 p-3 flex flex-col justify-end transition-transform hover:-translate-y-1"
+                className="group relative rounded-xl overflow-hidden aspect-[4/3] bg-black/40 border border-white/20 p-3 flex flex-col justify-end transition-transform hover:-translate-y-1 hover:border-desert-sand/50"
               >
                 <Image
                   src="/images/delhi-agra.webp"
@@ -109,14 +109,14 @@ export function HeroSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
                 <div className="relative z-10 text-white">
-                  <span className="text-[10px] text-amber-300 font-bold block uppercase tracking-wider">Same Day</span>
+                  <span className="text-[10px] text-desert-sand font-bold block uppercase tracking-wider">Same Day</span>
                   <strong className="text-xs font-serif block truncate">Agra Sunrise</strong>
                 </div>
               </Link>
 
               <Link
                 href="/tour-packages/delhi-agra-jaipur-3-days-golden-triangle-tour"
-                className="group relative rounded-xl overflow-hidden aspect-[4/3] bg-black/40 border border-white/20 p-3 flex flex-col justify-end transition-transform hover:-translate-y-1"
+                className="group relative rounded-xl overflow-hidden aspect-[4/3] bg-black/40 border border-white/20 p-3 flex flex-col justify-end transition-transform hover:-translate-y-1 hover:border-desert-sand/50"
               >
                 <Image
                   src="/images/golden-triangle-portrait.webp"
@@ -127,7 +127,7 @@ export function HeroSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
                 <div className="relative z-10 text-white">
-                  <span className="text-[10px] text-amber-300 font-bold block uppercase tracking-wider">03 Days</span>
+                  <span className="text-[10px] text-desert-sand font-bold block uppercase tracking-wider">03 Days</span>
                   <strong className="text-xs font-serif block truncate">3 Days GT</strong>
                 </div>
               </Link>
@@ -142,39 +142,39 @@ export function HeroSection() {
       </Container>
 
       {/* Greenlandwey-Style Stats Bar */}
-      <div className="relative z-10 bg-black/60 backdrop-blur-md text-white border-t border-white/15">
+      {/* <div className="relative z-10 bg-black/60 backdrop-blur-md text-white border-t border-white/15">
         <Container>
           <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10 py-4 text-center">
             <div className="p-3">
-              <div className="font-serif text-2xl sm:text-3xl font-bold text-brand-gold">10+</div>
-              <div className="text-[11px] sm:text-xs text-slate-300 font-medium mt-0.5 uppercase tracking-wider">
+              <div className="font-serif text-2xl sm:text-3xl font-bold text-desert-sand">10+</div>
+              <div className="text-[11px] sm:text-xs text-platinum/80 font-medium mt-0.5 uppercase tracking-wider">
                 Years Experience
               </div>
             </div>
 
             <div className="p-3">
-              <div className="font-serif text-2xl sm:text-3xl font-bold text-brand-gold">40+</div>
-              <div className="text-[11px] sm:text-xs text-slate-300 font-medium mt-0.5 uppercase tracking-wider">
+              <div className="font-serif text-2xl sm:text-3xl font-bold text-desert-sand">40+</div>
+              <div className="text-[11px] sm:text-xs text-platinum/80 font-medium mt-0.5 uppercase tracking-wider">
                 Destinations Visited
               </div>
             </div>
 
             <div className="p-3">
-              <div className="font-serif text-2xl sm:text-3xl font-bold text-brand-gold">5K+</div>
-              <div className="text-[11px] sm:text-xs text-slate-300 font-medium mt-0.5 uppercase tracking-wider">
+              <div className="font-serif text-2xl sm:text-3xl font-bold text-desert-sand">5K+</div>
+              <div className="text-[11px] sm:text-xs text-platinum/80 font-medium mt-0.5 uppercase tracking-wider">
                 Happy Travelers
               </div>
             </div>
 
             <div className="p-3">
-              <div className="font-serif text-2xl sm:text-3xl font-bold text-brand-gold">100%</div>
-              <div className="text-[11px] sm:text-xs text-slate-300 font-medium mt-0.5 uppercase tracking-wider">
+              <div className="font-serif text-2xl sm:text-3xl font-bold text-desert-sand">100%</div>
+              <div className="text-[11px] sm:text-xs text-platinum/80 font-medium mt-0.5 uppercase tracking-wider">
                 Custom Private Tours
               </div>
             </div>
           </div>
         </Container>
-      </div>
+      </div> */}
     </section>
   );
 }

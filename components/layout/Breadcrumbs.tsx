@@ -15,14 +15,14 @@ export interface BreadcrumbsProps {
 
 export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
   return (
-    <div className={`bg-cream-100/60 border-b border-line/60 py-3 ${className || ''}`}>
+    <div className={`bg-platinum/60 border-b border-dust-grey/70 py-3 ${className || ''}`}>
       <Container>
         <nav aria-label="Breadcrumb">
-          <ol className="flex items-center flex-wrap gap-1.5 text-xs text-gray-500">
+          <ol className="flex items-center flex-wrap gap-1.5 text-xs text-jet-black/60">
             <li className="flex items-center gap-1.5">
               <Link
                 href="/"
-                className="flex items-center gap-1 hover:text-brand-primary transition-colors"
+                className="flex items-center gap-1 hover:text-burnt-peach transition-colors"
                 title="Home"
               >
                 <Home className="w-3.5 h-3.5" />
@@ -34,17 +34,17 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
               const isLast = index === items.length - 1;
               return (
                 <li key={index} className="flex items-center gap-1.5">
-                  <ChevronRight className="w-3 h-3 text-gray-400 shrink-0" aria-hidden="true" />
+                  <ChevronRight className="w-3 h-3 text-jet-black/40 shrink-0" aria-hidden="true" />
                   {item.href && !isLast ? (
                     <Link
                       href={item.href}
-                      className="hover:text-brand-primary transition-colors max-w-[200px] sm:max-w-none truncate"
+                      className="hover:text-burnt-peach transition-colors max-w-[200px] sm:max-w-none truncate"
                     >
                       {item.label}
                     </Link>
                   ) : (
                     <span
-                      className="font-medium text-brand-dark max-w-[240px] sm:max-w-none truncate"
+                      className="font-medium text-jet-black max-w-[240px] sm:max-w-none truncate"
                       aria-current="page"
                     >
                       {item.label}

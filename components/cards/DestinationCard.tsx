@@ -12,10 +12,10 @@ export function DestinationCard({ destination, className = '' }: DestinationCard
   return (
     <Link
       href={`/destinations/${destination.id}`}
-      className={`group relative block overflow-hidden rounded-xl bg-white border border-line shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${className}`}
+      className={`group relative block overflow-hidden rounded-xl bg-white border border-dust-grey shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-desert-sand/60 ${className}`}
     >
       {/* 1:1 Aspect Image Container */}
-      <div className="relative aspect-square w-full overflow-hidden bg-cream-200">
+      <div className="relative aspect-square w-full overflow-hidden bg-platinum">
         <Image
           src={destination.image}
           alt={destination.name}
@@ -29,10 +29,10 @@ export function DestinationCard({ destination, className = '' }: DestinationCard
 
       {/* Caption info */}
       <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 text-white">
-        <h3 className="font-serif font-bold text-sm sm:text-base lg:text-lg leading-snug group-hover:text-amber-300 transition-colors drop-shadow-xs">
+        <h3 className="font-serif font-bold text-sm sm:text-base lg:text-lg leading-snug group-hover:text-desert-sand transition-colors drop-shadow-xs">
           {destination.name}
         </h3>
-        <p className="text-[11px] sm:text-xs text-slate-200/90 truncate mt-0.5 font-sans">
+        <p className="text-[11px] sm:text-xs text-platinum/90 truncate mt-0.5 font-sans">
           {destination.region}
         </p>
       </div>
