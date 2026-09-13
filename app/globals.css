@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  --color-brand-primary: #c26122;
+  --color-brand-primary-hover: #a84e17;
+  --color-brand-gold: #c8862e;
+  --color-brand-navy: #0f2a3d;
+  --color-brand-dark: #1f1b18;
+  --color-cream-50: #faf7f2;
+  --color-cream-100: #f5efe6;
+  --color-cream-200: #eae1d2;
+  --color-line: #e4ddd3;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf7f2;
+  --foreground: #1f1b18;
+  --card: #ffffff;
+  --card-foreground: #1f1b18;
+  --primary: #c26122;
+  --primary-foreground: #ffffff;
+  --border: #e4ddd3;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
 }

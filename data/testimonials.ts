@@ -1,0 +1,48 @@
+import { Testimonial } from '@/types';
+
+export const testimonialsData: Testimonial[] = [
+  {
+    id: 'test-1',
+    authorName: 'David & Sarah Mitchell',
+    authorCountry: 'United Kingdom',
+    rating: 5,
+    tripTitle: '5 Nights Golden Triangle Tour',
+    tourSlug: 'golden-triangle-5-nights',
+    date: 'October 2025',
+    comment: 'Our Golden Triangle tour was seamlessly coordinated from the moment we touched down in Delhi. Having a dedicated private driver and knowledgeable local guides made our first visit to India both comfortable and memorable.',
+    verified: true,
+  },
+  {
+    id: 'test-2',
+    authorName: 'Dr. Elena Rossi',
+    authorCountry: 'Italy',
+    rating: 5,
+    tripTitle: 'Kerala Backwaters & Tea Plantations',
+    tourSlug: 'kerala-backwaters-tea-plantations',
+    date: 'November 2025',
+    comment: 'The houseboat night on the Alleppey backwaters was the highlight of our holiday. Pacing was relaxed, the hotels in Munnar were exceptional, and the team was always accessible for any small questions.',
+    verified: true,
+  },
+  {
+    id: 'test-3',
+    authorName: 'Michael Chang',
+    authorCountry: 'Australia',
+    rating: 5,
+    tripTitle: 'Rajasthan Heritage & Haveli Circuit',
+    tourSlug: 'rajasthan-heritage-haveli',
+    date: 'January 2026',
+    comment: 'Exploring the painted havelis of Shekhawati and the forts of Jodhpur with local experts brought the history to life. The private vehicle was spotless every day, and our driver was always courteous and punctual.',
+    verified: true,
+  },
+  {
+    id: 'test-4',
+    authorName: 'Claire & Marcus Bennett',
+    authorCountry: 'United States',
+    rating: 5,
+    tripTitle: 'Central India Tiger Safari Tour',
+    tourSlug: 'central-india-tiger-safari',
+    date: 'February 2026',
+    comment: 'We had thrilling tiger sightings in Bandhavgarh and Kanha! The jungle lodges were peaceful and sustainable, and the naturalist guides provided outstanding insight into the flora and fauna.',
+    verified: true,
+  },
+];
