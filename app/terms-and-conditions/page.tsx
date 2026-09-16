@@ -12,6 +12,9 @@ const company = getCompanyInfo();
 export const metadata: Metadata = {
   title: `Terms & Conditions | ${company.name}`,
   description: 'Terms and conditions governing private tour planning, vehicle reservations, and itinerary coordination.',
+  alternates: {
+    canonical: '/terms-and-conditions',
+  },
 };
 
 export default function TermsPage() {

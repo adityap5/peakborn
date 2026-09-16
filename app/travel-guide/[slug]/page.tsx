@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { Clock, Calendar, User, CheckCircle } from 'lucide-react';
 import { getAllTravelGuides, getTravelGuideBySlug, getTourPackageBySlug, getCompanyInfo } from '@/lib/data-access';
 import { generateArticleJsonLd } from '@/lib/seo';
+import { SITE_URL } from '@/lib/config';
 import { UtilityBar } from '@/components/layout/UtilityBar';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -65,7 +66,7 @@ export default async function TravelGuideArticlePage({ params }: TravelGuideArti
     notFound();
   }
 
-  const jsonLd = generateArticleJsonLd(guide, company, 'https://company-domain.com');
+  const jsonLd = generateArticleJsonLd(guide, company, SITE_URL);
 
   const recommendedTours = (guide.recommendedTourSlugs || [])
     .map((tourSlug) => getTourPackageBySlug(tourSlug))

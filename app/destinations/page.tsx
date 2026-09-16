@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   title: `India Travel Destinations | Private Tours & Regional Circuits | ${company.name}`,
   description:
     'Explore India’s premier travel destinations with private custom itineraries. From Rajasthan’s majestic forts and Kerala backwaters to the Golden Triangle, Varanasi, and tiger safaris.',
+  alternates: {
+    canonical: '/destinations',
+  },
 };
 
 export default function DestinationsPage() {

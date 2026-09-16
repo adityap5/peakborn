@@ -12,6 +12,9 @@ const company = getCompanyInfo();
 export const metadata: Metadata = {
   title: `Privacy Policy | ${company.name}`,
   description: 'Our privacy policy details how we handle, protect, and respect your personal enquiry information.',
+  alternates: {
+    canonical: '/privacy-policy',
+  },
 };
 
 export default function PrivacyPolicyPage() {

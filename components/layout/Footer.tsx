@@ -34,10 +34,10 @@ export function Footer() {
               Tailor-made, private India journeys crafted with local expertise. We design authentic itineraries across heritage monuments, scenic backwaters, tiger reserves, and serene mountain valleys.
             </p>
 
-            <div className="pt-2 space-y-2 text-xs text-dust-grey">
+            <div className="pt-2 space-y-2.5 text-xs text-dust-grey">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-desert-sand shrink-0 mt-0.5" />
-                <span>{company.address}</span>
+                <span className="leading-relaxed">{company.address}</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-desert-sand shrink-0" />
@@ -51,6 +51,11 @@ export function Footer() {
                   {company.email}
                 </a>
               </div>
+              {company.udyamRegistrationNumber && (
+                <div className="pt-1 text-[11px] text-dust-grey/90 border-t border-dust-grey/20">
+                  <span>UDYAM Registration No.: <strong className="text-desert-sand font-medium">{company.udyamRegistrationNumber}</strong></span>
+                </div>
+              )}
             </div>
           </div>
 

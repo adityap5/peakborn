@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { getAllTourPackages, getTourPackageBySlug, getCompanyInfo } from '@/lib/data-access';
 import { generateTourJsonLd } from '@/lib/seo';
+import { SITE_URL } from '@/lib/config';
 import { UtilityBar } from '@/components/layout/UtilityBar';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -86,7 +87,7 @@ export default async function TourPackageDetailPage({ params }: TourPackagePageP
     notFound();
   }
 
-  const jsonLd = generateTourJsonLd(tour, company, 'https://company-domain.com');
+  const jsonLd = generateTourJsonLd(tour, company, SITE_URL);
   const hasWhatsApp = Boolean(company.whatsappNumber && company.whatsappNumber.trim());
 
   return (

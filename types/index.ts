@@ -10,6 +10,7 @@ export interface CompanyInfo {
   displayPhone: string;
   email: string;
   address: string;
+  udyamRegistrationNumber?: string;
   // Optional contact channels and corporate fields
   whatsappNumber?: string;
   whatsappDefaultMessage?: string;

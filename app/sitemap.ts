@@ -1,20 +1,18 @@
 import type { MetadataRoute } from 'next';
 import {
-  getAllDestinations,
   getAllTourPackages,
   getAllTravelStyles,
   getAllTravelGuides,
 } from '@/lib/data-access';
+import { SITE_URL } from '@/lib/config';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://company-domain.com';
   const currentDate = new Date().toISOString();
 
-  // Core static marketing and legal pages
+  // Core static marketing and legal pages (excluding retired destination routes)
   const staticRoutes: MetadataRoute.Sitemap = [
     '',
     '/tour-packages',
-    '/destinations',
     '/travel-styles',
     '/travel-guide',
     '/about',
@@ -24,43 +22,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/refund-policy',
     '/disclaimer',
   ].map((route) => ({
-    url: `${baseUrl}${route}`,
+    url: `${SITE_URL}${route}`,
     lastModified: currentDate,
-    changeFrequency: route === '' ? 'weekly' : 'monthly',
-    priority: route === '' ? 1.0 : route.startsWith('/tour-packages') || route.startsWith('/destinations') ? 0.9 : 0.7,
+    changeFrequency: (route === '' ? 'weekly' : 'monthly') as 'weekly' | 'monthly',
+    priority: route === '' ? 1.0 : route.startsWith('/tour-packages') ? 0.9 : 0.7,
   }));
 
-  // Destinations
-  const destinations = getAllDestinations().map((dest) => ({
-    url: `${baseUrl}/destinations/${dest.id}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
-
-  // Tour Packages
-  const tours = getAllTourPackages().map((tour) => ({
-    url: `${baseUrl}/tour-packages/${tour.slug}`,
+  // Tour Packages (18 active tours)
+  const tours: MetadataRoute.Sitemap = getAllTourPackages().map((tour) => ({
+    url: `${SITE_URL}/tour-packages/${tour.slug}`,
     lastModified: currentDate,
     changeFrequency: 'weekly' as const,
     priority: 0.85,
   }));
 
-  // Travel Styles
-  const styles = getAllTravelStyles().map((style) => ({
-    url: `${baseUrl}/travel-styles/${style.slug}`,
+  // Travel Styles (8 active styles)
+  const styles: MetadataRoute.Sitemap = getAllTravelStyles().map((style) => ({
+    url: `${SITE_URL}/travel-styles/${style.slug}`,
     lastModified: currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.75,
   }));
 
-  // Travel Guides
-  const guides = getAllTravelGuides().map((guide) => ({
-    url: `${baseUrl}/travel-guide/${guide.slug}`,
+  // Travel Guides (4 active guides)
+  const guides: MetadataRoute.Sitemap = getAllTravelGuides().map((guide) => ({
+    url: `${SITE_URL}/travel-guide/${guide.slug}`,
     lastModified: guide.publishedAt ? new Date(guide.publishedAt).toISOString() : currentDate,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...destinations, ...tours, ...styles, ...guides];
+  return [...staticRoutes, ...tours, ...styles, ...guides];
 }

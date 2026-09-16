@@ -10,7 +10,7 @@ export const travelStylesData: TravelStyle[] = [
     iconName: 'Landmark',
     heroImage: '/images/golden-triangle-landscape.webp',
     featured: true,
-    metaTitle: 'Culture & Heritage Tour Packages | Company-Name',
+    metaTitle: 'Culture & Heritage Tour Packages | Peakborn Holidays',
     metaDescription: 'Explore India’s cultural heritage with private bespoke itineraries covering forts, palaces, and historic cities.',
   },
   {
@@ -22,7 +22,7 @@ export const travelStylesData: TravelStyle[] = [
     iconName: 'Compass',
     heroImage: '/images/journey-ranthambore.jpg',
     featured: true,
-    metaTitle: 'India Wildlife & Tiger Safari Tours | Company-Name',
+    metaTitle: 'India Wildlife & Tiger Safari Tours | Peakborn Holidays',
     metaDescription: 'Experience thrilling jeep safaris in India’s top national parks including Ranthambore, Bandhavgarh, and Kanha.',
   },
   {
@@ -34,7 +34,7 @@ export const travelStylesData: TravelStyle[] = [
     iconName: 'Waves',
     heroImage: '/images/kerala-south-india.jpg',
     featured: true,
-    metaTitle: 'Kerala Backwaters & Coastal Tours | Company-Name',
+    metaTitle: 'Kerala Backwaters & Coastal Tours | Peakborn Holidays',
     metaDescription: 'Sail serene backwater canals and relax along tropical shores with customized coastal India itineraries.',
   },
   {
@@ -46,7 +46,7 @@ export const travelStylesData: TravelStyle[] = [
     iconName: 'Mountain',
     heroImage: '/images/hero-india.jpg',
     featured: true,
-    metaTitle: 'Himalayan & Hill Station Holidays | Company-Name',
+    metaTitle: 'Himalayan & Hill Station Holidays | Peakborn Holidays',
     metaDescription: 'Breathe in mountain tranquility with curated journeys across Himalayan foothills and tea valleys.',
   },
   {
@@ -58,7 +58,7 @@ export const travelStylesData: TravelStyle[] = [
     iconName: 'Sparkles',
     heroImage: '/images/rajasthan.jpg',
     featured: true,
-    metaTitle: 'Luxury India Private Holidays | Company-Name',
+    metaTitle: 'Luxury India Private Holidays | Peakborn Holidays',
     metaDescription: 'Bespoke luxury India holidays with palace hotels, private chauffeur transport, and curated local encounters.',
   },
   {
@@ -70,7 +70,7 @@ export const travelStylesData: TravelStyle[] = [
     iconName: 'Heart',
     heroImage: '/images/taj-mahal.jpg',
     featured: true,
-    metaTitle: 'Romantic India Honeymoon Packages | Company-Name',
+    metaTitle: 'Romantic India Honeymoon Packages | Peakborn Holidays',
     metaDescription: 'Plan your dream romantic journey across India’s most scenic and enchanting destinations.',
   },
   {
@@ -82,7 +82,7 @@ export const travelStylesData: TravelStyle[] = [
     iconName: 'Users',
     heroImage: '/images/new-delhi.jpg',
     featured: true,
-    metaTitle: 'Family India Holiday Packages | Company-Name',
+    metaTitle: 'Family India Holiday Packages | Peakborn Holidays',
     metaDescription: 'Thoughtfully paced holiday itineraries designed for multi-generational families traveling in India.',
   },
   {
@@ -94,7 +94,7 @@ export const travelStylesData: TravelStyle[] = [
     iconName: 'Camera',
     heroImage: '/images/varanasi.jpg',
     featured: true,
-    metaTitle: 'India Photography & Experiential Tours | Company-Name',
+    metaTitle: 'India Photography & Experiential Tours | Peakborn Holidays',
     metaDescription: 'Immerse your lens in India’s vibrant streets, golden forts, sacred ghats, and wildlife sanctuaries.',
   },
 ];

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { Phone, Mail, MapPin, Clock, MessageSquare } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, MessageSquare, ShieldCheck } from 'lucide-react';
 import { Container } from '@/components/layout/Container';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { UtilityBar } from '@/components/layout/UtilityBar';
@@ -12,9 +12,17 @@ import { getCompanyInfo } from '@/lib/data-access';
 const company = getCompanyInfo();
 
 export const metadata: Metadata = {
-  title: `Contact Us & Custom Trip Planner | ${company.name}`,
+  title: `Contact Us | Custom Trip Planner | ${company.name}`,
   description:
-    'Contact our travel specialists to plan your private custom India tour. Get in touch by phone, email, or our tailored enquiry form.',
+    'Contact our travel specialists at Peakborn Holidays to plan your private custom India tour. Get in touch by phone, email, or our tailored enquiry form.',
+  alternates: {
+    canonical: '/contact',
+  },
+  openGraph: {
+    title: `Contact Us | ${company.name}`,
+    description:
+      'Contact our travel specialists at Peakborn Holidays to plan your private custom India tour. Get in touch by phone, email, or our tailored enquiry form.',
+  },
 };
 
 export default function ContactPage() {
@@ -53,7 +61,7 @@ export default function ContactPage() {
                     <MapPin className="w-5 h-5 text-burnt-peach shrink-0 mt-0.5" />
                     <div>
                       <strong className="block text-jet-black font-semibold">Office Address</strong>
-                      <span className="text-jet-black/70 text-xs sm:text-sm">{company.address}</span>
+                      <span className="text-jet-black/70 text-xs sm:text-sm leading-relaxed block mt-0.5">{company.address}</span>
                     </div>
                   </div>
 
@@ -76,6 +84,18 @@ export default function ContactPage() {
                       </a>
                     </div>
                   </div>
+
+                  {company.udyamRegistrationNumber && (
+                    <div className="flex items-start gap-3.5 pt-2 border-t border-dashed border-dust-grey">
+                      <ShieldCheck className="w-5 h-5 text-burnt-peach shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-jet-black font-semibold">Government Registration</strong>
+                        <span className="text-jet-black/80 text-xs sm:text-sm">
+                          UDYAM Registration No.: <strong className="font-semibold text-jet-black">{company.udyamRegistrationNumber}</strong>
+                        </span>
+                      </div>
+                    </div>
+                  )}
 
                   {company.operatingHours && (
                     <div className="flex items-start gap-3.5 pt-2 border-t border-dashed border-dust-grey">

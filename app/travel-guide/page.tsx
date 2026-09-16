@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   title: `India Travel Guide & Expert Tips | ${company.name}`,
   description:
     'Practical India travel advice from local specialists. Season-by-season climate guide, packing checklists, cultural etiquette tips, and first-time visitor recommendations.',
+  alternates: {
+    canonical: '/travel-guide',
+  },
 };
 
 export default function TravelGuidePage() {

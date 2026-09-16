@@ -38,7 +38,7 @@ export const travelGuidesData: TravelGuideArticle[] = [
     ],
     recommendedTourSlugs: ['delhi-agra-jaipur-5-days-golden-triangle-tour', 'ultimate-classical-rajasthan-tour-13-days', 'golden-triangle-tour-with-udaipur-8-days'],
     featured: true,
-    metaTitle: 'Best Time to Visit India | Travel Guide | Company-Name',
+    metaTitle: 'Best Time to Visit India | Travel Guide | Peakborn Holidays',
     metaDescription: 'Find the ideal season for your India journey with our comprehensive guide to weather, regional climates, and top travel months.',
   },
   {
@@ -77,7 +77,7 @@ export const travelGuidesData: TravelGuideArticle[] = [
     ],
     recommendedTourSlugs: ['delhi-agra-jaipur-5-days-golden-triangle-tour'],
     featured: true,
-    metaTitle: 'First-Time Visitor Guide to India | Company-Name',
+    metaTitle: 'First-Time Visitor Guide to India | Peakborn Holidays',
     metaDescription: 'Essential planning tips for first-time travelers to India covering itineraries, pacing, transport, and local customs.',
   },
   {
@@ -143,7 +143,7 @@ export const travelGuidesData: TravelGuideArticle[] = [
     ],
     recommendedTourSlugs: ['golden-triangle-tour-with-varanasi', 'delhi-agra-jaipur-5-days-golden-triangle-tour'],
     featured: false,
-    metaTitle: 'Cultural Etiquette in India | Travel Advice | Company-Name',
+    metaTitle: 'Cultural Etiquette in India | Travel Advice | Peakborn Holidays',
     metaDescription: 'Practical tips on respectful cultural customs, greetings, temple visits, and etiquette when traveling in India.',
   },
 ];

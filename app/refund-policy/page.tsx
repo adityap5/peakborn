@@ -12,6 +12,9 @@ const company = getCompanyInfo();
 export const metadata: Metadata = {
   title: `Cancellation & Refund Policy | ${company.name}`,
   description: 'Our policy regarding tour cancellations, modifications, and refund processes.',
+  alternates: {
+    canonical: '/refund-policy',
+  },
 };
 
 export default function RefundPolicyPage() {

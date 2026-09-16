@@ -13,17 +13,21 @@ import { TravelGuidesSection } from '@/components/sections/TravelGuidesSection';
 import { FinalCtaBanner } from '@/components/sections/FinalCtaBanner';
 import { getCompanyInfo } from '@/lib/data-access';
 import { generateTravelAgencyJsonLd } from '@/lib/seo';
+import { SITE_URL } from '@/lib/config';
 
 const company = getCompanyInfo();
 
 export const metadata: Metadata = {
   title: `${company.name} | Private India Tours & Custom Holiday Packages`,
   description:
-    'Plan a private, custom India holiday with local experts. Golden Triangle, Rajasthan, Kerala, tiger safaris, Himalayan retreats, and more — handcrafted itineraries tailored to your pace.',
+    'Plan a private, custom India holiday with local experts. Golden Triangle, Rajasthan, Agra, Jaipur, Varanasi, and wildlife safaris — handcrafted itineraries tailored to your pace.',
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function HomePage() {
-  const jsonLd = generateTravelAgencyJsonLd(company, 'https://company-domain.com');
+  const jsonLd = generateTravelAgencyJsonLd(company, SITE_URL);
 
   return (
     <>

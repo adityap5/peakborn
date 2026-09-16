@@ -97,7 +97,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: true,
-    metaTitle: 'Taj Mahal Sunrise tour from Delhi by Car | Company-Name',
+    metaTitle: 'Taj Mahal Sunrise tour from Delhi by Car | Peakborn Holidays',
     metaDescription: 'Book our Taj Mahal Sunrise tour from Delhi by car. Experience sunrise at the Taj Mahal and Agra Fort with private AC vehicle and licensed guide.',
   },
 
@@ -180,7 +180,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: true,
-    metaTitle: 'Taj Mahal Tour By Superfast Train From Delhi | Company-Name',
+    metaTitle: 'Taj Mahal Tour By Superfast Train From Delhi | Peakborn Holidays',
     metaDescription: 'Book our Taj Mahal tour by superfast Gatimaan Express train from Delhi. Enjoy 90-min fast train transit, private guide, and luxury Agra sightseeing.',
   },
 
@@ -264,7 +264,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: true,
-    metaTitle: 'Taj Mahal and Agra Fort Tour by Car from Delhi | Company-Name',
+    metaTitle: 'Taj Mahal and Agra Fort Tour by Car from Delhi | Peakborn Holidays',
     metaDescription: 'Book our private Taj Mahal and Agra Fort tour by car from Delhi. Explore the Taj Mahal and Agra Fort via Yamuna Expressway with licensed guide and AC car.',
   },
 
@@ -366,7 +366,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: true,
-    metaTitle: 'Delhi Agra Jaipur 3 Days Golden triangle tour | Company-Name',
+    metaTitle: 'Delhi Agra Jaipur 3 Days Golden triangle tour | Peakborn Holidays',
     metaDescription: 'Book our Delhi Agra Jaipur 3 Days Golden Triangle tour package. Explore Delhi, Agra Taj Mahal sunrise, and Jaipur Amber Fort with private AC vehicle and guide.',
   },
 
@@ -479,7 +479,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: true,
-    metaTitle: 'Delhi Agra Jaipur 4 Days Golden triangle tour | Company-Name',
+    metaTitle: 'Delhi Agra Jaipur 4 Days Golden triangle tour | Peakborn Holidays',
     metaDescription: 'Book our Delhi Agra Jaipur 4 Days Golden Triangle tour package. Explore Delhi monuments, Taj Mahal at sunrise, Agra Fort, and Jaipur palaces with private car.',
   },
 
@@ -602,7 +602,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: true,
-    metaTitle: 'Delhi Agra Jaipur 5 Days Golden triangle tour | Company-Name',
+    metaTitle: 'Delhi Agra Jaipur 5 Days Golden triangle tour | Peakborn Holidays',
     metaDescription: 'Book our handcrafted 5 Days Golden Triangle tour package covering Delhi, the Taj Mahal in Agra, and royal Jaipur with private vehicle and guide.',
   },
 
@@ -733,7 +733,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: true,
-    metaTitle: 'Delhi Agra Jaipur 6 Days Golden triangle tour | Company-Name',
+    metaTitle: 'Delhi Agra Jaipur 6 Days Golden triangle tour | Peakborn Holidays',
     metaDescription: 'Book our 6-Day Golden Triangle tour covering Delhi, Taj Mahal at sunrise, Agra Fort, Fatehpur Sikri, Abhaneri stepwell, and royal Jaipur with private car.',
   },
 
@@ -817,7 +817,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: true,
-    metaTitle: 'Delhi Agra Jaipur Ranthambore 7 Days Golden triangle tour | Company-Name',
+    metaTitle: 'Delhi Agra Jaipur Ranthambore 7 Days Golden triangle tour | Peakborn Holidays',
     metaDescription: 'Experience the 7-Day Golden Triangle with Ranthambore Tiger Safari. Discover Delhi, Agra, Jaipur, and 2 jungle safaris with private AC transport.',
   },
 
@@ -899,7 +899,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: false,
-    metaTitle: 'Delhi Agra Jaipur Amritsar 7 Days Golden triangle tour | Company-Name',
+    metaTitle: 'Delhi Agra Jaipur Amritsar 7 Days Golden triangle tour | Peakborn Holidays',
     metaDescription: 'Book our 7-Day Golden Triangle with Amritsar tour package. Explore Delhi, Agra Taj Mahal, Jaipur palaces, Golden Temple, and Wagah Border.',
   },
 
@@ -982,7 +982,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: true,
-    metaTitle: 'Golden triangle tour with Udaipur 8 Days | Company-Name',
+    metaTitle: 'Golden triangle tour with Udaipur 8 Days | Peakborn Holidays',
     metaDescription: 'Book our 8-Day Golden Triangle with Udaipur tour package. Explore Delhi, Agra Taj Mahal, Jaipur forts, and romantic Lake Pichola boat cruise in Udaipur.',
   },
 
@@ -1067,7 +1067,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: true,
-    metaTitle: 'Golden triangle tour with Varanasi | Company-Name',
+    metaTitle: 'Golden triangle tour with Varanasi | Peakborn Holidays',
     metaDescription: 'Book our Golden Triangle with Varanasi tour. Experience Delhi, Agra, Jaipur, dawn Ganges boat ride, and evening Aarti in Varanasi with private car.',
   },
 
@@ -1149,7 +1149,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: false,
-    metaTitle: 'Golden triangle tour with Pushkar Jodhpur 8 Days | Company-Name',
+    metaTitle: 'Golden triangle tour with Pushkar Jodhpur 8 Days | Peakborn Holidays',
     metaDescription: 'Book our 8-Day Golden Triangle with Pushkar and Jodhpur tour. Experience Delhi, Taj Mahal, Jaipur forts, holy Pushkar, and Jodhpur Blue City with private car.',
   },
 
@@ -1235,7 +1235,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: true,
-    metaTitle: 'Golden Triangle tour with Jodhpur Udaipur 10 Days | Company-Name',
+    metaTitle: 'Golden Triangle tour with Jodhpur Udaipur 10 Days | Peakborn Holidays',
     metaDescription: 'Book our 10-Day Golden Triangle with Jodhpur and Udaipur tour package. Explore Delhi, Agra Taj Mahal, Jaipur, Jodhpur blue city, Ranakpur, and Udaipur lakes.',
   },
 
@@ -1328,7 +1328,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: true,
-    metaTitle: 'Ultimate Classical Rajasthan Tour 13 Days | Company-Name',
+    metaTitle: 'Ultimate Classical Rajasthan Tour 13 Days | Peakborn Holidays',
     metaDescription: 'Experience the 13-Day Ultimate Classical Rajasthan Tour. Explore Delhi, Agra, Jaipur, Mandawa havelis, Bikaner, Jaisalmer desert camp, Jodhpur, and Udaipur palaces.',
   },
 
@@ -1403,7 +1403,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: false,
-    metaTitle: 'Private full day old and new delhi city tour | Company-Name',
+    metaTitle: 'Private full day old and new delhi city tour | Peakborn Holidays',
     metaDescription: 'Book our private full day Old and New Delhi city tour. Explore Jama Masjid, Chandni Chowk rickshaw ride, Humayun’s Tomb, and Qutub Minar with private guide.',
   },
 
@@ -1477,7 +1477,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: false,
-    metaTitle: 'Jaipur City Private Day tour - 8 hours | Company-Name',
+    metaTitle: 'Jaipur City Private Day tour - 8 hours | Peakborn Holidays',
     metaDescription: 'Book our Jaipur City private day tour (8 hours). Explore Amber Fort, Jal Mahal, Hawa Mahal, City Palace, and Jantar Mantar with private car and guide.',
   },
 
@@ -1562,7 +1562,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: false,
-    metaTitle: 'From Delhi: 2 Days Jaipur City Overnight Tour | Company-Name',
+    metaTitle: 'From Delhi: 2 Days Jaipur City Overnight Tour | Peakborn Holidays',
     metaDescription: 'Book our 2 Days Jaipur City overnight tour from Delhi. Travel by private AC car, explore Amber Fort, Jal Mahal, and City Palace with 1 night stay.',
   },
 
@@ -1646,7 +1646,7 @@ export const tourPackagesData: TourPackage[] = [
       },
     ],
     featured: false,
-    metaTitle: '2 Days Agra and Jaipur City Tour | Company-Name',
+    metaTitle: '2 Days Agra and Jaipur City Tour | Peakborn Holidays',
     metaDescription: 'Book our 2 Days Agra and Jaipur city tour from Delhi. Visit the Taj Mahal, Agra Fort, Fatehpur Sikri, and Amber Fort with private car and 1 night stay.',
   },
 ];

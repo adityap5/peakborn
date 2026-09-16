@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   title: `About Us | Local Travel Expertise | ${company.name}`,
   description:
     'Learn about our philosophy, local travel expertise, and dedicated approach to crafting tailor-made private tours across India.',
+  alternates: {
+    canonical: '/about',
+  },
 };
 
 export default function AboutPage() {

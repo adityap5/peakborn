@@ -12,6 +12,9 @@ const company = getCompanyInfo();
 export const metadata: Metadata = {
   title: `Disclaimer & Security Advisory | ${company.name}`,
   description: 'Official disclaimer, security guidelines, and fraud prevention advisory for our travelers.',
+  alternates: {
+    canonical: '/disclaimer',
+  },
 };
 
 export default function DisclaimerPage() {

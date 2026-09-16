@@ -266,7 +266,7 @@ export function ContactForm({ onSubmitSuccess, className = '' }: ContactFormProp
               disabled={isLoading}
             />
             <span className="text-xs text-gray-600 leading-snug">
-              I agree to be contacted by {`Company-Name`} regarding this travel inquiry.
+              I agree to be contacted by Peakborn Holidays regarding this travel inquiry.
             </span>
           </label>
           {errors.consentAgreed && (

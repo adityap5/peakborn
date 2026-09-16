@@ -8,6 +8,7 @@ import {
   getCompanyInfo,
 } from '@/lib/data-access';
 import { generateDestinationJsonLd } from '@/lib/seo';
+import { SITE_URL } from '@/lib/config';
 import { UtilityBar } from '@/components/layout/UtilityBar';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -78,7 +79,7 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
   }
 
   const relatedTours = getTourPackagesByDestination(destination.id);
-  const jsonLd = generateDestinationJsonLd(destination, 'https://company-domain.com');
+  const jsonLd = generateDestinationJsonLd(destination, SITE_URL);
 
   return (
     <>

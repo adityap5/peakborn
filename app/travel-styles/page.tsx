@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   title: `Travel Styles & Holiday Themes | ${company.name}`,
   description:
     'Explore India tailored around your travel style. Wildlife safaris, cultural heritage circuits, luxury palace journeys, romantic honeymoons, and peaceful mountain holidays.',
+  alternates: {
+    canonical: '/travel-styles',
+  },
 };
 
 export default function TravelStylesPage() {

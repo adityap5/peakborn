@@ -10,7 +10,11 @@ export function generateTravelAgencyJsonLd(company: CompanyInfo, siteUrl: string
     email: company.email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: company.address,
+      streetAddress:
+        'S/O Rohitas Singh Tomar, Rajan Kunj Nagla Kishan Lal, Hathras Road, Naraich, Kuberpur, PO: Yamuna Bridge',
+      addressLocality: 'Agra',
+      addressRegion: 'Uttar Pradesh',
+      postalCode: '282006',
       addressCountry: 'IN',
     },
     url: siteUrl,
