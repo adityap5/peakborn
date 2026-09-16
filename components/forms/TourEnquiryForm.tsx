@@ -1,11 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ShieldCheck, CheckCircle2, Loader2, Send } from 'lucide-react';
+import { ShieldCheck, CheckCircle2, Loader2, Send, MessageSquare } from 'lucide-react';
 import { EnquiryFormData } from '@/types';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
+import { formatTourEnquiryMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 export interface TourEnquiryFormProps {
   tourTitle?: string;
@@ -36,6 +37,7 @@ export function TourEnquiryForm({
   const [errors, setErrors] = useState<Partial<Record<keyof EnquiryFormData, string>>>({});
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedWaUrl, setSubmittedWaUrl] = useState('');
 
   const validate = (): boolean => {
     const newErrors: Partial<Record<keyof EnquiryFormData, string>> = {};
@@ -71,10 +73,18 @@ export function TourEnquiryForm({
 
     setIsLoading(true);
     try {
+      const messageText = formatTourEnquiryMessage(tourTitle || 'Custom Tour', formData);
+      const waUrl = getWhatsAppUrl(messageText);
+      setSubmittedWaUrl(waUrl);
+
+      if (typeof window !== 'undefined') {
+        window.open(waUrl, '_blank', 'noopener,noreferrer');
+      }
+
       if (onSubmitSuccess) {
         await onSubmitSuccess(formData);
       } else {
-        await new Promise((resolve) => setTimeout(resolve, 800));
+        await new Promise((resolve) => setTimeout(resolve, 500));
       }
       setIsSubmitted(true);
     } catch (err) {
@@ -90,31 +100,45 @@ export function TourEnquiryForm({
         <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
           <CheckCircle2 className="w-7 h-7" />
         </div>
-        <h3 className="font-serif text-xl font-bold mb-2">Quote Request Received</h3>
+        <h3 className="font-serif text-xl font-bold mb-2">Enquiry Forwarded to WhatsApp!</h3>
         <p className="text-xs sm:text-sm text-gray-600 mb-6 max-w-sm mx-auto">
-          Thank you for your interest in {tourTitle ? `the "${tourTitle}" package` : 'this package'}. Our destination specialist will get back to you with detailed pricing and day-by-day customization.
+          Your quote request for {tourTitle ? `"${tourTitle}"` : 'this package'} has been prepared for our WhatsApp travel desk (<strong>+91 79007 40963</strong>). If WhatsApp did not open automatically, click below:
         </p>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => {
-            setIsSubmitted(false);
-            setFormData({
-              fullName: '',
-              phone: '',
-              email: '',
-              tourTitle: tourTitle || '',
-              tourSlug: tourSlug || '',
-              travelDate: '',
-              numberOfTravelers: 2,
-              specialRequirements: '',
-              consentAgreed: false,
-              honeypot: '',
-            });
-          }}
-        >
-          Submit Another Request
-        </Button>
+        <div className="flex flex-col gap-2.5 items-center justify-center">
+          {submittedWaUrl && (
+            <a
+              href={submittedWaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 text-xs sm:text-sm font-bold shadow-sm transition-colors w-full"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>Open WhatsApp Chat</span>
+            </a>
+          )}
+          <Button
+            variant="outline"
+            size="sm"
+            className="w-full"
+            onClick={() => {
+              setIsSubmitted(false);
+              setFormData({
+                fullName: '',
+                phone: '',
+                email: '',
+                tourTitle: tourTitle || '',
+                tourSlug: tourSlug || '',
+                travelDate: '',
+                numberOfTravelers: 2,
+                specialRequirements: '',
+                consentAgreed: false,
+                honeypot: '',
+              });
+            }}
+          >
+            Submit Another Request
+          </Button>
+        </div>
       </div>
     );
   }

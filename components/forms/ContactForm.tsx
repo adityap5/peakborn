@@ -1,11 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import { CheckCircle2, Loader2, Send, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, Loader2, Send, ShieldCheck, MessageSquare } from 'lucide-react';
 import { EnquiryFormData } from '@/types';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
+import { formatContactEnquiryMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 export interface ContactFormProps {
   onSubmitSuccess?: (data: EnquiryFormData) => Promise<void> | void;
@@ -29,6 +30,7 @@ export function ContactForm({ onSubmitSuccess, className = '' }: ContactFormProp
   const [errors, setErrors] = useState<Partial<Record<keyof EnquiryFormData, string>>>({});
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedWaUrl, setSubmittedWaUrl] = useState('');
 
   const validate = (): boolean => {
     const newErrors: Partial<Record<keyof EnquiryFormData, string>> = {};
@@ -64,10 +66,18 @@ export function ContactForm({ onSubmitSuccess, className = '' }: ContactFormProp
 
     setIsLoading(true);
     try {
+      const messageText = formatContactEnquiryMessage(formData);
+      const waUrl = getWhatsAppUrl(messageText);
+      setSubmittedWaUrl(waUrl);
+
+      if (typeof window !== 'undefined') {
+        window.open(waUrl, '_blank', 'noopener,noreferrer');
+      }
+
       if (onSubmitSuccess) {
         await onSubmitSuccess(formData);
       } else {
-        await new Promise((resolve) => setTimeout(resolve, 800));
+        await new Promise((resolve) => setTimeout(resolve, 500));
       }
       setIsSubmitted(true);
     } catch (err) {
@@ -84,31 +94,44 @@ export function ContactForm({ onSubmitSuccess, className = '' }: ContactFormProp
           <CheckCircle2 className="w-8 h-8" />
         </div>
         <h3 className="font-serif text-2xl font-bold mb-2 text-brand-dark">
-          Message Received!
+          Enquiry Forwarded to WhatsApp!
         </h3>
         <p className="text-sm text-gray-600 mb-6 max-w-md mx-auto leading-relaxed">
-          Thank you for reaching out to us. Our senior trip planner will review your preferences and contact you via email or phone with a tailored proposal.
+          Your travel details have been formatted and directed to our official WhatsApp travel desk (<strong>+91 79007 40963</strong>). If WhatsApp did not launch automatically, click the button below:
         </p>
-        <Button
-          variant="outline"
-          onClick={() => {
-            setIsSubmitted(false);
-            setFormData({
-              fullName: '',
-              phone: '',
-              email: '',
-              duration: '1-2 Weeks',
-              preferredStyle: 'Culture & Heritage',
-              travelDate: '',
-              numberOfTravelers: 2,
-              specialRequirements: '',
-              consentAgreed: false,
-              honeypot: '',
-            });
-          }}
-        >
-          Send Another Message
-        </Button>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          {submittedWaUrl && (
+            <a
+              href={submittedWaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 text-sm font-bold shadow-sm transition-colors w-full sm:w-auto"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>Open WhatsApp Chat</span>
+            </a>
+          )}
+          <Button
+            variant="outline"
+            onClick={() => {
+              setIsSubmitted(false);
+              setFormData({
+                fullName: '',
+                phone: '',
+                email: '',
+                duration: '1-2 Weeks',
+                preferredStyle: 'Culture & Heritage',
+                travelDate: '',
+                numberOfTravelers: 2,
+                specialRequirements: '',
+                consentAgreed: false,
+                honeypot: '',
+              });
+            }}
+          >
+            Send Another Message
+          </Button>
+        </div>
       </div>
     );
   }

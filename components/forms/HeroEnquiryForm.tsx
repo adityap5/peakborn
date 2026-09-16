@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ShieldCheck, CheckCircle2, Loader2, ArrowRight } from 'lucide-react';
+import { ShieldCheck, CheckCircle2, Loader2, ArrowRight, MessageSquare } from 'lucide-react';
 import { EnquiryFormData } from '@/types';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { formatHeroEnquiryMessage, getWhatsAppUrl } from '@/lib/whatsapp';
 
 export interface HeroEnquiryFormProps {
   onSubmitSuccess?: (data: EnquiryFormData) => Promise<void> | void;
@@ -23,6 +24,7 @@ export function HeroEnquiryForm({ onSubmitSuccess, className = '' }: HeroEnquiry
   const [errors, setErrors] = useState<Partial<Record<keyof EnquiryFormData, string>>>({});
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedWaUrl, setSubmittedWaUrl] = useState('');
 
   const validate = (): boolean => {
     const newErrors: Partial<Record<keyof EnquiryFormData, string>> = {};
@@ -59,11 +61,18 @@ export function HeroEnquiryForm({ onSubmitSuccess, className = '' }: HeroEnquiry
 
     setIsLoading(true);
     try {
+      const messageText = formatHeroEnquiryMessage(formData);
+      const waUrl = getWhatsAppUrl(messageText);
+      setSubmittedWaUrl(waUrl);
+
+      if (typeof window !== 'undefined') {
+        window.open(waUrl, '_blank', 'noopener,noreferrer');
+      }
+
       if (onSubmitSuccess) {
         await onSubmitSuccess(formData);
       } else {
-        // Simulated submission latency
-        await new Promise((resolve) => setTimeout(resolve, 800));
+        await new Promise((resolve) => setTimeout(resolve, 500));
       }
       setIsSubmitted(true);
     } catch (err) {
@@ -80,21 +89,35 @@ export function HeroEnquiryForm({ onSubmitSuccess, className = '' }: HeroEnquiry
           <CheckCircle2 className="w-7 h-7" />
         </div>
         <h3 className="font-serif text-xl sm:text-2xl font-bold mb-2">
-          Thank You!
+          Forwarded to WhatsApp!
         </h3>
-        <p className="text-sm text-gray-600 mb-6 max-w-xs">
-          We have received your trip inquiry. One of our destination specialists will reach out to you within 24 hours.
+        <p className="text-xs sm:text-sm text-gray-600 mb-6 max-w-xs leading-relaxed">
+          Your travel inquiry has been prepared for our official WhatsApp desk (<strong>+91 79007 40963</strong>). If WhatsApp did not launch automatically, click below:
         </p>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => {
-            setIsSubmitted(false);
-            setFormData({ fullName: '', phone: '', email: '', consentAgreed: false, honeypot: '' });
-          }}
-        >
-          Send Another Enquiry
-        </Button>
+        <div className="flex flex-col gap-2.5 w-full max-w-xs items-center">
+          {submittedWaUrl && (
+            <a
+              href={submittedWaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 text-xs sm:text-sm font-bold shadow-sm transition-colors w-full"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>Open WhatsApp Chat</span>
+            </a>
+          )}
+          <Button
+            variant="outline"
+            size="sm"
+            className="w-full"
+            onClick={() => {
+              setIsSubmitted(false);
+              setFormData({ fullName: '', phone: '', email: '', consentAgreed: false, honeypot: '' });
+            }}
+          >
+            Send Another Enquiry
+          </Button>
+        </div>
       </div>
     );
   }
