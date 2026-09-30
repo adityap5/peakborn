@@ -7,7 +7,7 @@ export const companyData: CompanyInfo = {
   displayPhone: '+91 79007 40963',
   email: 'peakbornholidays@gmail.com',
   address:
-    'S/O Rohitas Singh Tomar, Rajan Kunj Nagla Kishan Lal, Hathras Road, Naraich, Kuberpur, PO: Yamuna Bridge, DIST: Agra, Uttar Pradesh - 282006',
+    'Rajan Kunj Nagla Kishan Lal, Hathras Road, Naraich, Kuberpur, PO: Yamuna Bridge, DIST: Agra, Uttar Pradesh - 282006',
   udyamRegistrationNumber: 'UDYAM-UP-01-0211734',
   whatsappNumber: '+917900740963',
   whatsappDefaultMessage: 'Hello Peakborn Holidays, I would like to enquire about a private tour package.',
